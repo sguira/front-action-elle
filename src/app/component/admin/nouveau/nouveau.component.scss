@@ -1,0 +1,42 @@
+.container{
+  margin: 76px auto;
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  // background-color: red;
+  align-self: center;
+  justify-content: space-between;
+  align-items: start;
+  .list-btn{
+    button{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      border-radius: 8px;
+      border: none;
+      width: 90px;
+      margin: 16px;
+      img{
+        width: 58px;
+      }
+
+    }
+    .selected{
+        border: 3px solid blue;
+      }
+  }
+
+  .formulaire{
+    margin: 18px;
+    mat-card{
+      min-width: 300px;
+    }
+
+    button{
+      width: 160px;
+    }
+  }
+
+}

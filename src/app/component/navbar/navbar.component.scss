@@ -1,0 +1,31 @@
+.container{
+
+  // margin-top:8px;
+  // max-width: 500px;
+  align-self: center;
+  position: fixed;
+  justify-self: center;
+  justify-items: center;
+  // margin-bottom: 100px;
+  margin-top: 10px;
+  // margin: auto;
+  // background-color: red;
+  width:100%;
+  // padding: 18px;
+  mat-card{
+    background-color: rgb(78, 97, 99);
+    border-radius: 2px;
+    z-index: 99;
+    mat-card-content{
+      display: flex;
+      justify-content: center;
+      a{
+        padding: 8px;
+        text-transform: none;
+        text-decoration: none;
+        color: white;
+        // text-transform: none;
+      }
+    }
+  }
+}

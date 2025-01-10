@@ -1,0 +1,39 @@
+.container{
+  margin: auto;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  .header{
+    display: flex;
+    // background-color: red;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+    // align-self: ;
+    align-items: center;
+    align-content: flex-end;
+    // justify-self: center;
+    width: 80vw;
+    .titre{
+      margin-right: 40px;
+    }
+
+  }
+  .list{
+    display: flex;
+    flex-wrap: wrap;
+    // width: 80vw;
+    mat-card{
+      // max-width: 300px;
+      // background-color: red;
+      margin: 16px;
+      padding: 22px;
+
+
+    }
+  }
+}

@@ -1,0 +1,75 @@
+
+
+.container{
+  background-color: rgb(35, 140, 164);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+
+  img{
+    width: 220px;
+    height: 200px;
+  }
+
+  mat-card{
+    max-width: 400px;
+    margin: auto auto;
+    border-radius: 11px;
+    padding: 16px;
+    mat-card-title{
+      font-size: 28px;
+      font-weight: bolder;
+    }
+    // max-height: 300px;
+    .formulaire{
+
+
+      .text-btn{
+        background-color: transparent;
+        color: black;
+        padding: 2px;
+        margin-bottom: 12px;
+        margin-top: 12px;
+      }
+
+      button{
+          padding: 14px;
+          width: 100%;
+          border: none;
+          background-color: rgb(87, 52, 203);
+          color: white;
+          border-radius: 4px;
+          margin-top: 22px;
+          max-height: 150px;
+          cursor: pointer;
+          &:hover{
+            transform: scale(1.02);
+          }
+
+          &:disabled{
+            background-color: black;
+            transform: scale(1);
+            cursor: none;
+          }
+
+          // mat-progress-spinner{
+          //   // size: 22px;
+          //   width: 50px !important;
+          //   max-height: 100px;
+          //   padding: 0px !important;
+          //   // background-color: red;
+          //   // height: 50px;
+          //   // background-color: red;
+          // }
+        }
+
+
+
+    }
+
+  }
+}
+
+

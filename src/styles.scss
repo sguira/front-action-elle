@@ -1,1 +1,87 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-front-actionelle-primary: mat.define-palette(mat.$indigo-palette);
+$app-front-actionelle-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$app-front-actionelle-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$app-front-actionelle-theme: mat.define-light-theme((
+  color: (
+    primary: $app-front-actionelle-primary,
+    accent: $app-front-actionelle-accent,
+    warn: $app-front-actionelle-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($app-front-actionelle-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.button{
+        padding: 8px;
+        margin: auto 8px;
+        border-radius: 6px;
+        border: none;
+        background-color: rgb(48, 95, 108);
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 100ms ease-in;
+        display: inline;
+        &:hover{
+          transform: scale(1.05);
+        }
+}
+
+
+.form-group{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 22px;
+        label{
+          color: rgba(18, 18, 18, 0.581);
+           margin-bottom: 4px;
+           text-transform: capitalize;
+           font-size: 12px;
+        }
+        input{
+          padding: 12px;
+          border-radius: 4px;
+          border: .2px solid rgba(35, 33, 33, 0.201);
+          &::placeholder{
+            color: rgb(62, 60, 60);
+          }
+        }
+
+
+      }
+
+textarea{
+  padding: 8px;
+  border: 1px solid silver;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+}

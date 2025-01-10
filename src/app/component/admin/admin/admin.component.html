@@ -1,0 +1,28 @@
+
+<div class="container">
+  <div class="header">
+   <div class="header">
+    <mat-card>
+
+        <!-- <img matCardImage src="Card wide image source"> -->
+        <mat-card-content>
+            <a routerLink="list-amazone" routerLinkActive="active">Liste des amazones</a>
+            <a routerLink="produit-assure" routerLinkActive="active">Produit Assuré</a>
+            <a routerLink="new" routerLinkActive="active">Nouveau Produit</a>
+            <a >Subscripteur</a>
+
+              <i class="ri-logout-box-line logout" aria-label="deconnexion" (click)="logout()"></i>
+
+        </mat-card-content>
+
+    </mat-card>
+  </div>
+  </div>
+
+  <body>
+
+    <router-outlet></router-outlet>
+
+  </body>
+
+</div>

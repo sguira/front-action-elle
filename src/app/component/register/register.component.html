@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="container">
+    <!-- <img src="/app-front-actionelle/src/assets/illustration/signup.png" alt=""> -->
+  </div>
+  <mat-card>
+      <mat-card-header>
+          <mat-card-title>Nouveau</mat-card-title>
+          <mat-card-subtitle>Entreez vos coordonnées pour vous connecter</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img matCardImage src="Card wide image source"> -->
+      <mat-card-content>
+          <form  [formGroup]="formGroup!" (ngSubmit)="onCreate()">
+            <div class="formulaire">
+            <div class="form-group">
+              <label for="nom">Nom complet</label>
+              <input type="email" name="nom" formControlName="name" required="true" placeholder="Ex. Mark koffi" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" formControlName="username" required="true" placeholder="Ex. exemple@gmail.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Téléphone</label>
+              <input type="tel" name="telephone" formControlName="phone" required="true" placeholder="Ex. +225 00 00 00 00 00" />
+            </div>
+            <div class="form-group">
+              <label for="email">Adresse</label>
+              <input type="text" formControlName="adresse" required="true" placeholder="Ex. Abidjan 2 Plateux Vallon" />
+            </div>
+            <div class="form-group">
+              <label for="cin">Numéro cin</label>
+              <input type="text" formControlName="cin" required="true" placeholder="Ex. Abidjan 2 Plateux Vallon" />
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="password" formControlName="password" required="true" />
+            </div>
+            <!-- <div style="display: flex;align-content: space-between;">
+              <a  routerLink="/register" >Mot de passe oublié</a>
+              <a href="">Inscription</a>
+            </div> -->
+            <button type ="submit" [disabled]="!formGroup!.valid">
+              Creer Compte
+            </button>
+          </div>
+          </form>
+       </mat-card-content>
+      <!-- <mat-card-actions >
+          <button mat-button (click)="onCreate()">Action1</button>
+
+      </mat-card-actions> -->
+      <!-- <mat-card-footer>
+          Footer -->
+      <!-- </mat-card-footer> -->
+  </mat-card>
+</div>

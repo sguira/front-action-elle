@@ -1,0 +1,81 @@
+
+
+.container{
+  background-color: rgb(35, 140, 164);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  mat-card{
+    max-width: 340px;
+    margin: auto auto;
+    border-radius: 11px;
+    padding: 16px;
+    mat-card-title{
+      font-size: 38px;
+      font-weight: bolder;
+    }
+    // max-height: 300px;
+    .formulaire{
+      .form-group{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 22px;
+        label{
+          color: rgba(72, 70, 70, 0.789);
+          font-size: 13px;
+        }
+        input{
+          padding: 12px;
+          border-radius: 4px;
+          border: 1px solid rgba(54, 52, 52, 0.266);
+        }
+
+
+      }
+      .inline-btn-text{
+        // background-color: red;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: space-between;
+        align-items: stretch;
+        justify-content: space-between;
+        margin: 16px auto;
+      }
+
+      .text-btn{
+        background-color: transparent;
+        color: black;
+        padding: 2px;
+        margin-bottom: 12px;
+        margin-top: 12px;
+      }
+
+
+      button{
+          padding: 14px;
+          width: 100%;
+          border: none;
+          background-color: rgb(87, 52, 203);
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+          &:hover{
+            transform: scale(1.02);
+          }
+
+          &:disabled{
+            background-color: black;
+            transform: scale(1);
+            cursor: none;
+          }
+        }
+
+
+
+    }
+
+  }
+}

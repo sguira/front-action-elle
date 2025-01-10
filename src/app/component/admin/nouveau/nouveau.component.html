@@ -1,0 +1,66 @@
+
+<div class="container">
+  <div class="list-btn">
+    <button [ngClass]="{'selected':currentBtn=='categorie'}" (click)="changeCurrentbtn('categorie')">
+      <span>
+        <img src="../../../../assets/illustration/voiture.png" alt="">
+      </span>
+      <span>Categorie Véhicule</span>
+    </button>
+    <button [ngClass]="{'selected':currentBtn=='vehicule'}" (click)="changeCurrentbtn('vehicule')">
+      <span>
+        <img src="../../../../assets/illustration/voiture.png" alt="">
+      </span>
+      <span>Produit Assuré</span>
+    </button>
+    <!-- <button [ngClass]="{'selected':currentBtn=='vehicule'}" (click)="changeCurrentbtn('vehicule')">
+      <span>
+        <img src="../../../../assets/illustration/voiture.png" alt="">
+      </span>
+      <span>Produit Assuré</span>
+    </button>
+    <button [ngClass]="{'selected':currentBtn=='vehicule'}" (click)="changeCurrentbtn('vehicule')">
+      <span>
+        <img src="../../../../assets/illustration/voiture.png" alt="">
+      </span>
+      <span>Produit Assuré</span>
+    </button> -->
+  </div>
+  <div class="formulaire">
+    <div class="categorie">
+      <mat-card>
+          <mat-card-header>
+              <mat-card-title>Catégorie de Véhicule</mat-card-title>
+              <mat-card-subtitle>Subtitle</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+              <form [formGroup]="formCat!" (ngSubmit)="newCategorie()">
+                <div class="form-group">
+                  <label for="categorie">Catégorie de Véhicule</label>
+                  <input type="text" name="categorie" formControlName="categorie" />
+                </div>
+                <div class="form-group">
+                  <label for="categorie">Code (*)</label>
+                  <input type="number" name="code" formControlName="code" />
+                </div>
+                <div class="form-group">
+                  <label for="categorie">Description</label>
+                  <textarea name="description" id="" cols="30" rows="5" placeholder="Décrivez le type de voiture en quelques ligne" formControlName="description"></textarea>
+                </div>
+
+
+              </form>
+          </mat-card-content>
+          <mat-card-actions align="start">
+              <div class="btn">
+                  <button class="button" type="submit"  (click)="newCategorie()">Ajouter</button>
+                  <button class="button" type="reset">Annuler</button>
+                </div>
+
+          </mat-card-actions>
+
+      </mat-card>
+    </div>
+  </div>
+</div>

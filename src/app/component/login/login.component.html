@@ -1,0 +1,37 @@
+<div class="container">
+  <mat-card>
+      <mat-card-header>
+          <mat-card-title>Authentification</mat-card-title>
+          <mat-card-subtitle>Entreez vos coordonnées pour vous connecter</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img matCardImage src="Card wide image source"> -->
+      <mat-card-content>
+          <form  [formGroup]="formGroup!" (ngSubmit)="onLogin()">
+            <div class="formulaire">
+              <div class="form-group">
+                <label for="email">Adresse email</label>
+                <input type="email" name="email" formControlName="username" placeholder="Ex. exemple@gmail.com"/>
+              </div>
+              <div class="form-group">
+                <label for="email">Mot de passe</label>
+                <input type="password" formControlName="password" required="true" />
+              </div>
+              <div class="inline-btn-text">
+                <a  >Mot de passe oublié</a>
+                <a routerLink="/register" routerLinkActive="active">Inscription</a>
+              </div>
+              <button type ="submit" [disabled]="!formGroup!.valid">
+                Se connecter
+              </button>
+            </div>
+          </form>
+       </mat-card-content>
+      <!-- <mat-card-actions >
+          <button mat-button (click)="onCreate()">Action1</button>
+
+      </mat-card-actions> -->
+      <!-- <mat-card-footer>
+          Footer -->
+      <!-- </mat-card-footer> -->
+  </mat-card>
+</div>
