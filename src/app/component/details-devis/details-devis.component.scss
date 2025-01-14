@@ -19,7 +19,39 @@
           font-size: 36px;
         }
       }
+
+      mat-card-content{
+        // padding: 8px;
+        margin: 18px 1px;
+        .element{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin: 4px 0px;
+          .header{
+            padding: 6px;
+            background-color: rgba(214, 59, 59, 0.633);
+            color: white;
+            width: 140px;
+          }
+          span{
+            padding: 6px;
+            border: 1px dotted blue;
+            width: 120px;
+          }
+        }
+      }
     }
   }
 
+}
+
+@media screen and (max-width:580px) {
+  .container{
+  margin: 18px;
+
+  mat-card{
+    width: 90vw;
+  }
+}
 }

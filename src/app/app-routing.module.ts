@@ -15,7 +15,7 @@ import { DetailsDevisComponent } from './component/details-devis/details-devis.c
 
 const routes: Routes = [
   {
-    path:'',pathMatch:'full',redirectTo:'app'
+    path:'',pathMatch:'full',redirectTo:'subscription'
   },
   {
     path:'app',component:AppComponent

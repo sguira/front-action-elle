@@ -3,7 +3,9 @@
     <h1>Votre Liste de subscription</h1>
   </div>
   <div class="spinner" *ngIf="isLoad">
-    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+    <app-spinner label="Chargement des souscriptions" [diameter]=100 couleur="white">
+
+    </app-spinner>
   </div>
   <div class="list" *ngIf="data.length>0">
     <div class="item" *ngFor="let item of data">

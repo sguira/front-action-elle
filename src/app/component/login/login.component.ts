@@ -37,6 +37,9 @@ export class LoginComponent {
     this.loading.$progress.subscribe((e)=>{
       this.isLoad=e;
     })
+    // if(this.auth.getToken()!=null){
+    //   this.auth.checkToken()
+    // }
   }
 
 
@@ -67,6 +70,8 @@ export class LoginComponent {
 
     })
   }
+
+
 
   closeAlert(){
     this.viewMessage=false;

@@ -1,11 +1,15 @@
 .container{
   position: relative;
   top: 100px;
-
+  display: flex;
+  flex-direction: column;
   .spinner{
-    // background-color: red;
-    display: flex;
+    background-color: red;
+    margin:22px auto;
     justify-content: center;
+    width: 95vw;
+    display: flex;
+
   }
 
   .header{

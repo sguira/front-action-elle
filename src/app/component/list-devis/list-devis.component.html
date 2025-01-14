@@ -2,15 +2,23 @@
   <div class="header">
     <h1>Mes Dévis</h1>
   </div>
+  <div class="spinner" *ngIf="isLoad">
+    <app-spinner label="Chargement des dévis" [diameter]=100 couleur="white">
+
+    </app-spinner>
+  </div>
   <div class="body">
     <div class="list" *ngIf="data.length>0">
       <div class="item" *ngFor="let item of data">
         <mat-card>
             <mat-card-header>
                 <mat-card-title>
-                  {{
-                    item['createdAt']
+                  <span>Référence</span>
+                  <span style="letter-spacing: 2px;color: red;">
+                    {{
+                    item['details']['quoteReference']??'Aucun'
                   }}
+                  </span>
                 </mat-card-title>
                 <mat-card-subtitle>
                   <span>

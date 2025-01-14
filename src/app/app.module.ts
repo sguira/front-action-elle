@@ -27,6 +27,7 @@ import { ProduitComponent } from './component/admin/nouveau/produit/produit.comp
 import { ListSuscriptionComponent } from './component/list-suscription/list-suscription.component';
 import { ListDevisComponent } from './component/list-devis/list-devis.component';
 import { DetailsDevisComponent } from './component/details-devis/details-devis.component';
+import { SpinnerComponent } from './component/widget/spinner/spinner.component';
 // import 'angular-spinner';
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DetailsDevisComponent } from './component/details-devis/details-devis.c
     ProduitComponent,
     ListSuscriptionComponent,
     ListDevisComponent,
-    DetailsDevisComponent
+    DetailsDevisComponent,
+    SpinnerComponent
 
   ],
   imports: [

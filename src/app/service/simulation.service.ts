@@ -25,8 +25,8 @@ export class SimulationService {
   }
 
   //méthode qui retourne la liste des dévis crée par un utilisateur
-  getDevis():Observable<any>{
-    return this.http.get(`${this.url}/simulations`,{headers:this.headerAuth})
+  getDevis(path:string|null):Observable<any>{
+    return this.http.get(`${this.url}/simulations${path!=null?path:''}`,{headers:this.headerAuth})
   }
 
 }

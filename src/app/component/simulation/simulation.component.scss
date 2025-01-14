@@ -1,6 +1,6 @@
 .container{
   position: relative;
-  background-color: rgb(35, 140, 164);
+  // background-color: rgb(35, 140, 164);
   top: 100px;
   margin: auto;
 
@@ -141,6 +141,11 @@ pre{
       mat-card-actions{
         display: flex;
         flex-wrap: wrap;
+        button{
+          &:disabled{
+            background-color: silver;
+          }
+        }
       }
     }
   }

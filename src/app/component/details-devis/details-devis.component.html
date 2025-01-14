@@ -1,49 +1,91 @@
-<div class="container" *ngIf="data.length>0">
+<div class="container" >
 
 
+  <div class="spinner">
+    <app-spinner></app-spinner>
+  </div>
 
 
-  <!-- <div class="item">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Client</mat-card-title>
-            <mat-card-subtitle> {{data['']}} </mat-card-subtitle>
-        </mat-card-header>
-        <img matCardImage src="Card wide image source">
-        <mat-card-content>
-            Text content
-        </mat-card-content>
-
-       <mat-card-footer>
-            Footer
-        </mat-card-footer> -->
-    <!-- </mat-card> -->
-  <!-- </div>  -->
-  <div class="item">
+  <div class="item" *ngIf="data!=null">
     <mat-card>
         <mat-card-header>
             <mat-card-title>Information dévis</mat-card-title>
             <mat-card-subtitle>
-              <!-- {{data['details']['Date fin du dévi']}} -->
+              <span>
+                Numéro Réference
+              </span>
+              <span>
+                {{data['details']['quoteReference']}}
+              </span>
+            </mat-card-subtitle>
+            <mat-card-subtitle>
+              <span>
+                Date création
+              </span>
+              <span>
+
+              <span>
+                {{data['details']['Date dévis']}}
+              </span>
+              </span>
             </mat-card-subtitle>
         </mat-card-header>
-        <img matCardImage src="Card wide image source">
+
         <mat-card-content>
-            Text content
+            <div class="element">
+              <span class="header">
+                Montant Prime
+              </span>
+              <span>
+                {{data['details']['Prime Total'] | currency }}
+              </span>
+
+            </div>
+            <div class="element">
+              <span class="header">
+                Valeur Venale
+              </span>
+              <span>
+                {{data['valeurVenale'] | currency }}
+              </span>
+            </div>
+            <div class="element">
+              <span class="header">
+                Puissance Cv
+              </span>
+              <span>
+                {{data['details']['Puissance Cv'] | currency }}
+              </span>
+            </div>
+            <div class="element">
+              <span class="header">
+                Date Mise circulation
+              </span>
+              <span>
+                {{data['miseCirculation'] | date }}
+              </span>
+            </div>
+            <div class="json">
+              <pre>
+                {{
+                  data['details'] | json
+                }}
+              </pre>
+            </div>
         </mat-card-content>
 
-        <!-- <mat-card-footer>
-            Footer
-        </mat-card-footer> -->
+      <mat-card-actions>
+        <button mat-raised-button class="button">Faire Une Souscription</button>
+      </mat-card-actions>
     </mat-card>
   </div>
-  <div class="item">
+  <div class="item" *ngIf="data!=null">
     <mat-card>
         <mat-card-header>
             <mat-card-title>Produit Assurance</mat-card-title>
             <mat-card-subtitle>Subtitle</mat-card-subtitle>
         </mat-card-header>
-        <img matCardImage src="Card wide image source">
+
         <mat-card-content>
             Text content
         </mat-card-content>

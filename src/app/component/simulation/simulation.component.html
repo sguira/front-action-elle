@@ -74,8 +74,8 @@
           </form>
       </mat-card-content>
       <mat-card-actions align="start">
-          <button class="button" type="submit" (click)="onSimulate()">
-            <mat-progress-spinner mode="indeterminate" color="accent" diameter="15"></mat-progress-spinner>
+          <button class="button" type="submit" (click)="onSimulate()" [disabled]="simulationForm!.valid">
+
             Faire une simulation</button>
           <button mat-button class="button" type="reset" (click)="reset()">Annuler</button>
       </mat-card-actions>

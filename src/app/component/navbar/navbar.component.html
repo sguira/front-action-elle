@@ -3,10 +3,10 @@
 
       <mat-card-content>
           <div class="items">
-            <a routerLink="/subscription" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Souscription</a>
-            <a routerLink="simulation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Simulation</a>
-            <a routerLink="list-souscriptions" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Mes Souscription</a>
-            <a routerLink="list-devis" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Mes Dévis</a>
+            <a routerLink="subscription" routerLinkActive="is-active" >Souscription</a>
+            <a routerLink="simulation" routerLinkActive="active" >Simulation</a>
+            <a routerLink="list-souscriptions" routerLinkActive="active" >Mes Souscription</a>
+            <a routerLink="list-devis" routerLinkActive="active" >Mes Dévis</a>
             <a (click)="logout()"><i class="ri-logout-box-line" ></i></a>
           </div>
       </mat-card-content>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SimulationService } from 'src/app/service/simulation.service';
 
 @Component({
   selector: 'app-details-devis',
@@ -9,9 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DetailsDevisComponent {
 
 
-  data:any[]=[]
 
-  constructor(public activatedRoute:ActivatedRoute){
+  data:any=null;
+  id:string=""
+  constructor(public activatedRoute:ActivatedRoute,public serviceSimulation:SimulationService ){
 
   }
   ngOnInit(): void {
@@ -21,10 +23,15 @@ export class DetailsDevisComponent {
     // this.data=history.state.data
     // console.log("données details"+this.data)
 
-    this.activatedRoute.params.subscribe(params=>{
-      console.log("Mes paramètres"+params['data'])
-      this.data=params['data']?JSON.parse(decodeURIComponent(params['data'])):null;
-      console.log(this.data)
+    this.activatedRoute.params.subscribe(value=>{
+      console.log("Identifiant:"+value['id'])
+      this.id=value['id']
+      if(this.id!=""){
+        this.serviceSimulation.getDevis("/"+this.id).subscribe((value)=>{
+          this.data=value;
+          console.log(this.data)
+        })
+      }
     })
   }
 
