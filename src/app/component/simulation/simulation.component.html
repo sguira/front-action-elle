@@ -1,1 +1,100 @@
-<p>simulation works!</p>
+<div class="container">
+  <!-- <div class="titre">
+    <h1>Faire une simulation</h1>
+  </div> -->
+  <header>
+    Créer une simulation
+  </header>
+  <mat-card>
+      <mat-card-header>
+          <mat-card-title>Simulation de dévis</mat-card-title>
+          <mat-card-subtitle>renseignez correctement les information pour faire une simulation de dévis </mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img matCardImage src="Card wide image source"> -->
+      <mat-card-content>
+          <form [formGroup]="simulationForm!" (ngSubmit)="onSimulate()">
+            <div class="vehicule">
+              <label for="marque">Informations sur le véhicule</label>
+              <div class="group">
+                <div class="form-group">
+                  <label for="modele">Date mise en circulation</label>
+                  <input type="date" formControlName="dateCirculation" >
+
+                </div>
+                <div class="form-group">
+                  <label for="modele">Puissance Fiscale (Cv)</label>
+                  <input type="number" placeholder="Puissance" formControlName="puissance" >
+
+                </div>
+                <div class="form-group">
+                  <label for="modele">Valeur vénale</label>
+                  <input type="number" placeholder="Puissance " formControlName="valeurVenale" >
+
+                </div>
+                <div class="form-group">
+                  <label for="modele">Catégorie</label>
+                  <select name="" id="" formControlName="categorie">
+                    <option *ngFor="let cat of categorie.categorieVoitures" [value]="cat.id">
+                      {{cat.code}}
+                    </option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+            <div class="produit">
+              <label for="modele">Informations sur le produit</label>
+              <div class="group">
+                <div class="form-group"  >
+                  <label for="modele">Nom Assurance</label>
+                  <select name="" id="" formControlName="product">
+                    <option  *ngFor="let item of categorie.product" [value]="item.id">{{item.nom}}</option>
+                  </select>
+                </div>
+                <div class="form-group" *ngIf="false">
+                  <label for="modele">Selectionnez une garantie</label>
+                  <div class="list-select">
+                    <mat-card *ngFor="let item of categorie.garanties" class="item" (click)="selectElement(item.id)" [ngClass]="{'selected':isIn(item.id)}" >
+
+                        <mat-card-content>
+                            <div>
+                              {{item.name}}
+                            </div>
+                            <div>
+                              Age Maimum: {{item.maxAge}}
+                            </div>
+                        </mat-card-content>
+
+                    </mat-card>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </form>
+      </mat-card-content>
+      <mat-card-actions align="start">
+          <button class="button" type="submit" (click)="onSimulate()">
+            <mat-progress-spinner mode="indeterminate" color="accent" diameter="15"></mat-progress-spinner>
+            Faire une simulation</button>
+          <button mat-button class="button" type="reset" (click)="reset()">Annuler</button>
+      </mat-card-actions>
+
+
+      <!-- Contaniner result -->
+      <mat-card *ngIf="showResult">
+          <mat-card-header>
+              <mat-card-title>Title</mat-card-title>
+              <mat-card-subtitle>Subtitle</mat-card-subtitle>
+          </mat-card-header>
+          <img matCardImage src="Card wide image source">
+          <mat-card-content>
+              <pre>
+                {{result |json }}
+              </pre>
+          </mat-card-content>
+
+      </mat-card>
+
+  </mat-card>
+</div>

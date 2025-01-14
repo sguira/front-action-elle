@@ -4,9 +4,15 @@
     position: relative;
     top: 100px;
     margin: auto;
+    header{
+      display: flex;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 500;
+    }
   .time-line{
     display: flex;
-    margin: auto;
+    margin:22px auto;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -22,22 +28,29 @@
     .pont{
       // display: block;
       content: "";
-      width: 20px;
+      width: 48px;
       height: 20px;
       background-color: white;
       border: 1px solid rgba(172, 163, 163, 0.54);
       border-radius: 36px;
+      display: flex;
+      font-weight: bolder;
+      justify-content: center;
     }
     .active{
       background-color: blue;
+      color: white;
     }
   }
 
   mat-card{
     margin: auto;
-    max-width: 500px;
-
+    max-width: 720px;
+    display: flex;
+    border-radius: 11px;
+    margin-bottom: 22px;
     mat-card-header{
+      display: flex;
       mat-card-title{
         font-size: 36px;
         font-weight: bolder;
@@ -45,8 +58,8 @@
     }
 
     mat-card-content{
-      .formulaire{
-        input{
+      // display: flex;
+      input{
           min-width: 200px;
         }
         .group{
@@ -55,7 +68,13 @@
           flex-wrap: wrap;
           justify-content: space-between;
         }
-      }
+
+        .info{
+          margin: 16px auto;
+          border: 1px solid rgba(192, 192, 192, 0.305);
+          padding: 16px;
+          border-radius: 8px;
+        }
 
 
     }
@@ -64,8 +83,59 @@
         margin: 22px 36px;
         border-radius: 4px;
         padding: 16px;
+        &:disabled{
+          background-color: silver;
+          cursor: none;
+        }
       }
     }
   }
 
+}
+
+@media screen and (max-width:500px) {
+  .container{
+    position: relative;
+    top: 120px;
+    margin: 18px;
+
+    header{
+      font-size: 22px;
+      color: white;
+    }
+
+    mat-card{
+
+      justify-content: center;
+      display: flex;
+      mat-card-header{
+        mat-card-title{
+          font-size: 16px;
+        }
+      }
+
+      mat-card-content{
+        // background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        align-self: center;
+        input{
+          // background-color: yellow;
+          // width: 100%;
+        }
+
+        .form-group{
+          // background-color: red;
+          width: 100%;
+        }
+
+        select{
+          width: 100%;
+        }
+      }
+    }
+  }
 }

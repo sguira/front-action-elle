@@ -1,0 +1,148 @@
+.container{
+  position: relative;
+  background-color: rgb(35, 140, 164);
+  top: 100px;
+  margin: auto;
+
+  max-width: 800px;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  header{
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 500;
+    margin: 22px;
+  }
+  mat-card{
+    // max-width: 700px;
+    padding: 16px;
+    border-radius: 12px;
+    mat-card-content{
+      .vehicule,.produit{
+        margin: 12px auto;
+
+        .group{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          border: 1px solid rgba(93, 92, 92, 0.37);
+          border-radius: 4px;
+          padding: 12px;
+          justify-content: space-between;
+          align-items: start;
+          align-content: start;
+          align-self: self-start;
+          .form-group{
+            margin: 8px 12px;
+            flex: display;
+            flex-wrap: wrap;
+          }
+      }
+      }
+
+      .list-select{
+        display: flex;
+        // flex-direction: row;
+        flex-wrap: wrap;
+        .item{
+          font-size: 13px;
+          text-transform: capitalize ;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          // background-color: blue;
+          // padding: 4px;
+          // border: 1px solid rgba(132, 132, 132, 0.536);
+          margin: 4px;
+          border-radius: 4;
+          cursor: default;
+          div{
+            padding: 4px;
+          }
+
+        }
+        .selected{
+          border: 2px solid blue;
+        }
+      }
+
+    }
+
+    mat-card-actions{
+      justify-content: space-around;
+      button{
+        padding: 12px;
+        min-width: 200px;
+
+        &:disabled{
+          background-color: silver;
+        }
+
+      }
+    }
+
+  }
+}
+pre{
+  padding: 8px;
+}
+
+@media screen and (max-width: 600px)  {
+
+  .container{
+    overflow-x: hidden;
+    margin: 6px;
+    width: 90%;
+    mat-card{
+      // background-color: red;
+      margin: 12px;
+      // max-width: 360px;
+      // max-width: 95vw;
+      padding: 1px;
+      mat-card-subtitle{
+        max-width: 240px;
+      }
+      mat-card-content{
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+        // background-color: red;
+
+
+
+        .vehicule{
+          // background-color: yellow;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          padding: 0px;
+          margin: 22 auto;
+          .group{
+            display: flex;
+            flex-direction: column;
+            margin: 0px;
+            // width: 100%;
+            .form-group{
+              // background-color: black;
+              width: 100%;
+              margin: 0px;
+            }
+
+            input{
+              min-width: 180px;
+            }
+          }
+        }
+      }
+      mat-card-actions{
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+}

@@ -13,6 +13,7 @@ export class NouveauComponent {
   currentBtn="categorie"
 
   formCat?:FormGroup
+  formGarantie?:FormGroup
 
   constructor(fb:FormBuilder,public admin:AdminService){
     this.formCat=fb.group({
@@ -20,6 +21,15 @@ export class NouveauComponent {
       code:['',Validators.required],
       description:[''],
     })
+
+    this.formGarantie=fb.group({
+      garantie:['',Validators.required],
+      rate:['',Validators.required],
+      maxAge:[''],
+      minPrime:['']
+    })
+
+
   }
 
   changeCurrentbtn(value:string){
@@ -28,12 +38,25 @@ export class NouveauComponent {
 
 
   newCategorie(){
-    this.admin.addCategorie({
+    this.admin.saveCategorie({
       'libelle':this.formCat?.value['categorie'],
-      'descrition':this.formCat?.value['description'],
+      'description':this.formCat?.value['description'],
       'code':this.formCat?.value['code'],
     }).subscribe((value)=>{
       console.log(value)
     })
   }
+
+  newGarantie(){
+    this.admin.saveGarantie({
+      'name':this.formGarantie?.value['garantie'],
+      'maxAge':this.formGarantie?.value['maxAge'],
+      'rate':this.formGarantie?.value['rate'],
+      'minPrime':this.formGarantie?.value['minPrime'],
+    }).subscribe((value)=>{
+      console.log(value)
+      this.formGarantie!.reset()
+    })
+  }
+
 }

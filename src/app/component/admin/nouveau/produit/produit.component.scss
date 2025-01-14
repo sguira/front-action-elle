@@ -1,0 +1,32 @@
+
+
+.formulaire{
+  mat-card{
+    // min-width: 400px;
+    .group{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .select-group{
+      margin: 16px auto;
+      padding: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.268);
+      mat-checkbox{
+        font-size: 12px;
+      }
+    }
+
+    mat-card-actions{
+      button{
+
+        &:disabled{
+          background-color: silver;
+        }
+      }
+      // .button{
+      //   background-color: red;
+      // }
+    }
+  }
+}

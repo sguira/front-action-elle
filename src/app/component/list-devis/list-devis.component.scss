@@ -1,0 +1,32 @@
+.container{
+  position: relative;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  max-width: 1000px;
+  .header{
+    color: white;
+  }
+  .body{
+    .list{
+      .item{
+        mat-card{
+          max-width: 300px;
+          display: flex;
+          border-radius: 12px;
+        }
+        mat-card-actions{
+          margin: 18px;
+          display: flex;
+          justify-content: center;
+          button{
+            min-width: 200px;
+            border-radius: 18px;
+          }
+        }
+      }
+    }
+  }
+}

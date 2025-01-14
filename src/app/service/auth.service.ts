@@ -18,9 +18,10 @@ export class AuthService {
   }
 
 
-  saveLoginData(token:string,roles:string){
+  saveLoginData(token:string,roles:string,id:string){
     localStorage.setItem('accessToken',token);
-    localStorage.setItem('ROLE',roles)
+    localStorage.setItem('ROLE',roles),
+    localStorage.setItem('USER_ID',id)
   }
 
   getToken(){

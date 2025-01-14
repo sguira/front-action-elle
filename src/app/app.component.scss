@@ -1,8 +1,15 @@
 .container-root{
   justify-content: center;
   margin: auto;
+  min-height: 100%;
+  background-color: rgb(35, 140, 164);
+  header{
+    z-index: 99;
+  }
   body{
+    z-index: 25;
     // position: relative;
     // top: 100px;
+
   }
 }

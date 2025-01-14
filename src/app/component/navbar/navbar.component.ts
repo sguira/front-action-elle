@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class NavbarComponent {
 
+  showMenu=false;
+
   constructor(public router:Router,public auth:AuthService) { }
 
   ngOnInit(): void {
@@ -23,6 +25,10 @@ export class NavbarComponent {
     this.auth.isAdmin=false;
     this.auth.isAuth=false;
     this.router.navigate(['/login']);
+  }
+
+  viewMobileMenu(){
+    this.showMenu=!this.showMenu;
   }
 
 }

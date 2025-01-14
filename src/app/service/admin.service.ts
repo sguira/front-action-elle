@@ -14,8 +14,10 @@ export class AdminService {
 
   headerAuth=new HttpHeaders({
       'Content-Type': 'application/json',
-
-      Authorization: `Bearer ${this.admin.getToken()}`
+      'Access-Control-Allow-Origin': '*',
+      "Acces-Controll-Request-Method":"*",
+      "Access-Controll-Request-Headers":"*",
+      "Authorization": `Bearer ${this.admin.getToken()}`
   })
 
   constructor(private http:HttpClient,private admin:AuthService) { }
@@ -28,8 +30,19 @@ export class AdminService {
 
 
   //ajouter une nouvelle categorie
-  addCategorie(data:Object):Observable<any>{
+  saveCategorie(data:Object):Observable<any>{
     return this.http.post(`${this.url}/admin/categorie`,data,{headers:this.headerAuth})
   }
+
+  //ajouter garantie
+  saveGarantie(data:Object):Observable<any>{
+    return this.http.post(`${this.url}/guarante`,data,{headers:this.headerAuth})
+  }
+
+  //ajouter un produit
+  saveProduit(data:Object):Observable<any>{
+    return this.http.post(`${this.url}/admin/produit`,data,{headers:this.headerAuth})
+  }
+
 
 }

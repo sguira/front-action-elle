@@ -1,0 +1,34 @@
+.alert{
+  margin: 12px auto;
+  // height: 28px;
+  mat-card{
+    background-color: red;
+    .error{
+        background-color: rgb(187, 68, 68);
+      }
+
+      .success{
+        background-color: rgb(20, 74, 20);
+      }
+    mat-card-content{
+      display: flex;
+      justify-content: space-between;
+
+      span{
+        color: white;
+        i{
+          font-size: 18px;
+          color: white;
+          &:hover{
+            cursor: pointer;
+            transform: scale(1.01);
+
+          }
+        }
+      }
+
+
+
+    }
+  }
+}

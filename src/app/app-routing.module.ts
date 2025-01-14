@@ -8,6 +8,10 @@ import { ListAmazoneComponent } from './component/admin/list-amazone/list-amazon
 import { AppComponent } from './app.component';
 import { SubscriptionComponent } from './component/subscription/subscription.component';
 import { NouveauComponent } from './component/admin/nouveau/nouveau.component';
+import { SimulationComponent } from './component/simulation/simulation.component';
+import { ListSuscriptionComponent } from './component/list-suscription/list-suscription.component';
+import { ListDevisComponent } from './component/list-devis/list-devis.component';
+import { DetailsDevisComponent } from './component/details-devis/details-devis.component';
 
 const routes: Routes = [
   {
@@ -18,13 +22,25 @@ const routes: Routes = [
   },
   {
     path:'home',component:AccueilComponent,
-
+  },
+  {
+    path:'list-souscriptions',
+    component:ListSuscriptionComponent
+  },
+  {
+    path:'list-devis',
+    component:ListDevisComponent
+  },
+  {
+    path:"details-devis/:id",
+    component:DetailsDevisComponent
   },
   {
     path:'subscription',component:SubscriptionComponent
   },
   { path:'login',component:LoginComponent },
   { path:'register',component:RegisterComponent },
+  {path:'simulation',component:SimulationComponent},
   {
     path:'admin',component:AdminComponent,
     children:[

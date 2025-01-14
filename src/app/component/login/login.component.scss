@@ -61,6 +61,8 @@
           background-color: rgb(87, 52, 203);
           color: white;
           border-radius: 4px;
+          display: flex;
+          justify-content: center;
           cursor: pointer;
           &:hover{
             transform: scale(1.02);
@@ -71,6 +73,13 @@
             transform: scale(1);
             cursor: none;
           }
+          mat-spinner{
+
+            circle{
+              stroke-width: 12px;
+              stroke: white;
+            }
+          }
         }
 
 
@@ -78,4 +87,5 @@
     }
 
   }
+
 }

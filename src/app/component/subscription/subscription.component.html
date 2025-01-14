@@ -1,156 +1,225 @@
 <div class="container">
+  <header>
+    Nouvelle souscription
+  </header>
   <div class="time-line" *ngIf="currentForm">
-    <div class="line" [ngClass]="{'active':currentForm>=1}"></div>
-    <div class="pont" [ngClass]="{'active':currentForm>=1}" ></div>
+    <!-- <div class="line" [ngClass]="{'active':currentForm>=1}"></div> -->
+    <div class="pont" [ngClass]="{'active':currentForm>=1}" >1</div>
     <div class="line" [ngClass]="{'active':currentForm>=2}"></div>
-    <div class="pont" [ngClass]="{'active':currentForm>=2}"></div>
+    <div class="pont" [ngClass]="{'active':currentForm>=2}">2</div>
     <div class="line" [ngClass]="{'active':currentForm>=3}"></div>
-    <div class="pont" [ngClass]="{'active':currentForm>=3}"></div>
+    <div class="pont" [ngClass]="{'active':currentForm>=3}">3</div>
   </div>
 
   <!-- Information du véhicule -->
   <mat-card *ngIf="currentForm==1">
       <mat-card-header>
           <mat-card-title>Information Du Véhicule</mat-card-title>
-          <mat-card-subtitle>Subtitle</mat-card-subtitle>
+          <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
       </mat-card-header>
-      <!-- <img matCardImage src="Card wide image source"> -->
+
       <mat-card-content>
          <div class="formulaire">
-          <form action="">
+          <form [formGroup]="formVehicule!" (ngSubmit)="validationVehicule()">
             <div class="group">
               <div class="form-group">
                 <label for="nom">Date mise en circulation</label>
-                <input type="date"  name="">
+                <input type="date"  name="misecirculation" formControlName="dateMiseCirculation">
              </div>
              <div class="form-group">
                 <label for="nom">Numéro d'immatriculation</label>
-                <input type="text" id="nom" name="" placeholder="Ex. 200 AA 123">
+                <input type="text" id="nom" name="matricule" placeholder="Ex. 200 AA 123" formControlName="matriculation">
              </div>
-            </div>
-            <div class="group">
               <div class="form-group">
                 <label for="nom">Couleur</label>
-                <input type="text" id="nom" name="" placeholder="Ex. Rouge">
-             </div>
-             <div class="form-group">
-                <label for="nom">Nombre de siège</label>
-                <input type="number" id="nom" name="" placeholder="Ex. 4">
+                <input type="text" id="nom" name="" placeholder="Ex. Rouge" formControlName="couleur">
              </div>
             </div>
             <div class="group">
               <div class="form-group">
+                  <label for="nom">Modèle de la voiture</label>
+                  <input type="text" id="nom" name="" placeholder="Ex. Mercedess 190" formControlName="nomModel">
+              </div>
+              <div class="form-group">
+                <label for="nom">Prix D'achat</label>
+                <input type="number"  placeholder="Ex. 10 000 000 FCFA" formControlName="prixDachat">
+             </div>
+             <div class="form-group">
+                <label for="nom">Valeur Vénale</label>
+                <input type="number" placeholder="Ex. 4 000 000 FCFA" formControlName="valeurVenale">
+             </div>
+
+            </div>
+            <div class="group">
+              <div class="form-group">
+                  <label for="puissance">Puissance (cv)</label>
+                  <input type="number" id="nom" name="" placeholder="Ex. 7" formControlName="puissance">
+              </div>
+              <div class="form-group">
+                  <label for="nom">Nombre de siège</label>
+                  <input type="number" id="nom" name="" placeholder="Ex. 4" formControlName="nbSieges">
+              </div>
+              <div class="form-group">
                 <label for="nom">Nombre de portes</label>
-                <input type="text" id="nom" placeholder="Ex. 4">
+                <input type="text" id="nom" placeholder="Ex. 4" formControlName="nbPortes">
              </div>
              <div class="form-group">
                 <label for="nom">Catégorie Véhicule</label>
-                <input type="text" id="nom" name="" placeholder="Ex. 4">
+                <select name="" id="" formControlName="categorie">
+                  <option *ngFor="let item of categorieService.categorieVoitures" [value]="item.id">{{item.code}}</option>
+
+                </select>
              </div>
             </div>
           </form>
          </div>
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
-          <button mat-button (click)="backForm()" class="button" disabled="true">Precedent</button>
-          <button mat-button (click)="nextForm()" class="button">Suivant</button>
+          <button (click)="backForm()"  class="button" [disabled]="currentForm==1" >Precedent</button>
+          <button mat-button type="submit" (click)="nextForm()"  class="button" [disabled]="formVehicule!.valid==false">Suivant</button>
       </mat-card-actions>
 
   </mat-card>
 
-  <!-- Information du véhicule -->
+  <!-- Information de l'assuré -->
   <mat-card *ngIf="currentForm==2">
+    <form [formGroup]="formPersonne!" (ngSubmit)="validationAssure()">
       <mat-card-header>
           <mat-card-title>Information de L'Assuré</mat-card-title>
-          <mat-card-subtitle>Subtitle</mat-card-subtitle>
+          <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
       </mat-card-header>
       <!-- <img matCardImage src="Card wide image source"> -->
       <mat-card-content>
          <div class="formulaire">
-          <form action="">
+            <div class="form-group">
+                <label for="nom">Nom Complet</label>
+                <input type="text" id="nom" name="nom" placeholder="Ex. Koffi Serge" formControlName="name">
+             </div>
             <div class="group">
               <div class="form-group">
                 <label for="nom">Adresse</label>
-                <input type="text" name="adresse" placeholder="Ex. Plateau Vallon">
+                <input type="text" name="adresse" placeholder="Ex. Plateau Vallon" formControlName="adresse">
              </div>
              <div class="form-group">
                 <label for="nom">Téléphone</label>
-                <input type="text"  name="phone" placeholder="Ex. +225 07 07 07 07 07">
+                <input type="number"  name="phone" placeholder="Ex. +225 07 07 07 07 07" formControlName="telephone">
              </div>
             </div>
-            <div class="form-group">
-                <label for="nom">Nom Complet</label>
-                <input type="text" id="nom" name="nom" placeholder="Ex. Koffi Serge">
-             </div>
+
             <div class="group">
               <div class="form-group">
                 <label for="nom">Numéro d'identité</label>
-                <input type="text" id="nom" name="">
+                <input type="text"  name="cin" formControlName="cin">
              </div>
              <div class="form-group">
                 <label for="nom">Ville</label>
-                <input type="text" id="nom" name="" placeholder="Ex.Abidjan">
+                <input type="text"  name="" placeholder="Ex.Abidjan" formControlName="city">
              </div>
             </div>
-          </form>
+
          </div>
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
           <button mat-button (click)="backForm()" class="button" >Precedent</button>
-          <button mat-button (click)="nextForm()" class="button">Suivant</button>
+          <button type="submit" (click)="nextForm()" class="button" [disabled]="formPersonne!.valid==false">Suivant</button>
       </mat-card-actions>
-
+    </form>
   </mat-card>
 
 
   <!-- Information du véhicule -->
   <mat-card *ngIf="currentForm==3">
+    <form [formGroup]="formProduct!">
       <mat-card-header>
-          <mat-card-title>Information Du Véhicule</mat-card-title>
+          <mat-card-title>Vérification des Informations</mat-card-title>
           <mat-card-subtitle>Subtitle</mat-card-subtitle>
       </mat-card-header>
       <!-- <img matCardImage src="Card wide image source"> -->
-      <mat-card-content>
-         <div class="formulaire">
-          <form action="">
-            <div class="group">
-              <div class="form-group">
-                <label for="nom">Nom</label>
-                <input type="date" id="nom" name="">
-             </div>
-             <div class="form-group">
-                <label for="nom">Numéro d'immatriculation</label>
-                <input type="text" id="nom" name="" placeholder="Ex. 4">
-             </div>
+      <mat-card-content class=".info">
+        <div class="vehicule info">
+          <label for="Info Véhicule">Info Véhicule</label>
+          <div class="group">
+            <div class="form-group">
+              <label for="nom">Date mise circulation</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formVehicule!.value['dateMiseCirculation']">
             </div>
-            <div class="group">
-              <div class="form-group">
-                <label for="nom">Nom</label>
-                <input type="date" id="nom" name="">
-             </div>
-             <div class="form-group">
-                <label for="nom">Numéro d'immatriculation</label>
-                <input type="text" id="nom" name="" placeholder="Ex. 4">
-             </div>
+            <div class="form-group">
+              <label for="nom">Matriculation</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formVehicule!.value['matriculation']">
             </div>
-            <div class="group">
-              <div class="form-group">
-                <label for="nom">Nom</label>
-                <input type="date" id="nom" name="">
-             </div>
-             <div class="form-group">
-                <label for="nom">Numéro d'immatriculation</label>
-                <input type="text" id="nom" name="" placeholder="Ex. 4">
-             </div>
+            <div class="form-group">
+              <label for="nom">Couleur</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formVehicule!.value['couleur']">
             </div>
-          </form>
-         </div>
+          </div>
+          <div class="group">
+            <div class="form-group">
+              <label for="nom">Nombre de sièges</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formVehicule!.value['nbSieges']">
+            </div>
+            <div class="form-group">
+              <label for="nom">Nombre de portes</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formVehicule!.value['nbPortes']">
+            </div>
+            <div class="form-group">
+              <label for="nom">Catégories du véhicule</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="getCodeById()">
+            </div>
+          </div>
+          <!-- <div class="form-group">
+            <label for="">Selectionnez un produit (*)</label>
+            <select name="" id="" style="border: 1px solid rgba(50, 50, 50, 0.17);">
+            <option *ngFor="let item of selectProductByCode('6782d9b119fca61831020c30')" value="">{{item.nom}}</option>
+
+          </select>
+          <label for="" *ngIf="selectProductByCode('6782d9b119fca61831020c30').length==0" style="color: red;">Aucun produit disponible pour la catégorie selectionné</label>
+          </div> -->
+        </div>
+
+        <!-- Information de la peronne  -->
+        <div class="vehicule info">
+          <label for="Info Véhicule">Info Véhicule</label>
+          <div class="group">
+            <div class="form-group">
+              <label for="nom">Adresse</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formPersonne!.value['adresse']">
+            </div>
+            <div class="form-group">
+              <label for="nom">Téléphone</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formPersonne!.value['telephone']">
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formPersonne!.value['name']">
+            </div>
+          </div>
+          <div class="group">
+            <div class="form-group">
+              <label for="nom">Ville</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formPersonne!.value['city']">
+            </div>
+            <div class="form-group">
+              <label for="nom">Numéro d'identité</label>
+              <input type="text" name="marque" [disabled]="true" [placeholder]="formPersonne!.value['cin']">
+            </div>
+
+          </div>
+
+        </div>
+        <div class="form-group">
+            <label for="">Selectionnez un produit (*)</label>
+            <select  id="" style="border: 1px solid rgba(50, 50, 50, 0.17);" formControlName="produitId">
+            <option *ngFor="let item of selectProductByCode(formVehicule!.value['categorie'])" [value]="item.id">{{item.nom}}</option>
+
+          </select>
+          <label for="" *ngIf="selectProductByCode(formVehicule!.value['categorie']).length==0" style="color: red;">Aucun produit disponible pour la catégorie selectionné</label>
+          </div>
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
           <button mat-button (click)="backForm()" class="button">Precedent</button>
-          <button mat-button (click)="nextForm()" class="button" disabled="true">Suivant</button>
+          <button mat-button (click)="souscription()" class="button"  [disabled]="formProduct.valid==false">Suivant</button>
       </mat-card-actions>
-
+    </form>
   </mat-card>
 
 </div>

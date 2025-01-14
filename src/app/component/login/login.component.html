@@ -10,18 +10,19 @@
             <div class="formulaire">
               <div class="form-group">
                 <label for="email">Adresse email</label>
-                <input type="email" name="email" formControlName="username" placeholder="Ex. exemple@gmail.com"/>
+                <input type="email" name="email" formControlName="username" placeholder="Ex. exemple@gmail.com"  (ngModelChange)="closeAlert()" />
               </div>
               <div class="form-group">
                 <label for="email">Mot de passe</label>
-                <input type="password" formControlName="password" required="true" />
+                <input type="password" formControlName="password" required="true" (ngModelChange)="closeAlert()" />
               </div>
               <div class="inline-btn-text">
                 <a  >Mot de passe oublié</a>
                 <a routerLink="/register" routerLinkActive="active">Inscription</a>
               </div>
+              <app-alert *ngIf="viewMessage && formGroup!.value['password']!=''&&message!='' " [message]="message" [style]="type!" [action]="closeAlert"></app-alert>
               <button type ="submit" [disabled]="!formGroup!.valid">
-                Se connecter
+                <mat-spinner class="custom-spinner" *ngIf="isLoad" color="accent" diameter="18" ></mat-spinner>  {{isLoad==false?'Se connecter':''}}
               </button>
             </div>
           </form>

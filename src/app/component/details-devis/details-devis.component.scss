@@ -1,0 +1,25 @@
+.container{
+  position: relative;
+  top: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  .item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 250px;
+    margin: 22px;
+    mat-card{
+      padding: 18px;
+      mat-card-header{
+        mat-card-title{
+          font-size: 36px;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,53 @@
+<div class="formulaire">
+      <form [formGroup]="formProduit!" (ngSubmit)="addProduit()" >
+      <mat-card>
+          <mat-card-header>
+              <mat-card-title>Produit Assurance</mat-card-title>
+              <mat-card-subtitle>Subtitle</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+
+                <div class="form-group">
+                  <label for="categorie">Nom Produit(*)</label>
+                  <input type="text" name="garantie" formControlName="name" />
+                </div>
+
+          <div class="group">
+            <div class="select-group">
+                    <div>
+                        <label for="">Selectionnez les garanties Incluses</label>
+                        <div *ngFor="let item of categorie.garanties;let i=index">
+                          <mat-checkbox [checked]="isCheck(item.id)" (change)="checkElement(item.id)">
+                            {{item.name}}
+                          </mat-checkbox>
+                        </div>
+
+                    </div>
+                  </div>
+
+                  <div class="select-group">
+                    <div>
+                        <label for="">Catégories éligible</label>
+                        <div *ngFor="let item of categorie.categorieVoitures;let i=index">
+                          <mat-checkbox [checked]="isCheckCategorie(item.id)" (change)="checkElementCategorie(item.id)">
+                            {{item.code}}
+                          </mat-checkbox>
+                        </div>
+
+                    </div>
+                  </div>
+          </div>
+
+          </mat-card-content>
+          <mat-card-actions align="start">
+              <div class="btn">
+                  <button class="button" type="submit" [disabled]="formProduit!.valid==false || listCheck.length==0 || listCheckCat.length==0" >Ajouter</button>
+                  <button class="button" type="reset">Annuler</button>
+                </div>
+
+          </mat-card-actions>
+
+      </mat-card>
+      </form>
+    </div>

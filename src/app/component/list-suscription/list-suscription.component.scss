@@ -1,0 +1,67 @@
+.container{
+  position: relative;
+  top: 100px;
+
+  .spinner{
+    // background-color: red;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header{
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+
+  .list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    // justify-content: center;
+    max-width: 1000px;
+    margin-top: 36px;
+    .item{
+      margin: 18px;
+      mat-card{
+        min-width: 200px;
+        border-radius: 11px;
+        mat-card-content{
+          margin-top: 18px;
+          .info{
+            margin: 12px;
+            margin-top: 8px;
+            span{
+              font-size: 13px;
+              text-transform: capitalize;
+              border: 1px dotted rgba(153, 192, 233, 0.682);
+              padding: 8px;
+              min-width: 100px;
+
+            }
+            .libelle{
+                // background-color: rgb(23, 101, 174);
+
+                // border-top-left-radius: 8px;
+                // border-bottom-left-radius: 8px;
+              }
+
+          }
+
+        }
+        mat-card-actions{
+          justify-content: center;
+            .button{
+              // background-color: red;
+              justify-content: center;
+              width: 100%;
+              margin: 22px;
+              border-radius: 28px;
+              background-color: rgb(93, 97, 209);
+            }
+          }
+      }
+    }
+  }
+}

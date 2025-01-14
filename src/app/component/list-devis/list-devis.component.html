@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="header">
+    <h1>Mes Dévis</h1>
+  </div>
+  <div class="body">
+    <div class="list" *ngIf="data.length>0">
+      <div class="item" *ngFor="let item of data">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                  {{
+                    item['createdAt']
+                  }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <span>
+                    Montant Prime:
+                  </span>
+                  <span>
+                    {{item['details']["Prime Total"]|currency:'EUR':'CFA'}}
+                  </span>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <!-- <img matCardImage src="Card wide image source"> -->
+            <!-- <i class="ri-info-card-line"></i> -->
+            <mat-card-content>
+              <div class="content">
+                <div class="info" style="margin: 18px auto;border: 1px solid transparent; padding: 8px;justify-content: center;display: flex;border-radius: 4px;background-color: rgba(235, 125, 125, 0.486);color: black;">
+                  <span>
+                    Produit Assurance
+                  </span>
+                  <span>
+                    {{item['produitAssure']["nomProduit"]}}
+                  </span>
+                </div>
+                <div class="info">
+                  <span>
+                    Date Fin
+                  </span>
+                  <span style="font-size: 13px;">
+                    {{
+                      item['details']["Date fin du dévi"] | date
+                    }}
+                  </span>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions align="start">
+              <button class="button" (click)="goToDetails(item)">
+                Voir details <i class="ri-arrow-right-line"></i>
+              </button>
+            </mat-card-actions>
+
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

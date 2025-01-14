@@ -1,12 +1,18 @@
 
 
 export class Categorie{
-  id?: string;
-  name?: string;
-  description?:string;
 
-  constructor(data:Partial<Categorie>){
-    Object.assign(data)
+  constructor(
+    public id: string,
+    public libelle: string,
+    public description: string,
+    public code: number,
+  ){
+
   }
+
+  // static fromToJson(){
+  //   return new Categorie()
+  // }
 
 }
