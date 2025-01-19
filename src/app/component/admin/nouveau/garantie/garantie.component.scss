@@ -1,0 +1,88 @@
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  // background-color: red;
+  .formulaire{
+  mat-card{
+    min-width: 300px;
+    .group{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .select-group{
+      margin: 16px auto;
+      padding: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.268);
+      mat-checkbox{
+        font-size: 12px;
+      }
+    }
+
+    mat-card-actions{
+      button{
+
+        &:disabled{
+          background-color: silver;
+        }
+      }
+      // .button{
+      //   background-color: red;
+      // }
+    }
+  }
+}
+.list{
+  margin: 4px 22px;
+  border: 1px solid silver;
+  padding: 12px;
+  border-radius: 6px;
+  header{
+    color: white;
+  }
+  .body{
+    .item{
+      padding: 8px;
+      margin: 6px;
+      size: 12px;
+      background-color: rgb(18, 109, 189);
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      color: white;
+      i{
+        cursor: pointer;
+        &:hover{
+          transform: scale(1.02);
+        }
+      }
+
+    }
+  }
+}
+
+}
+
+@media screen and (max-width: 600px) {
+  .container{
+    display: flex;
+    width: 100%;
+    .formulaire{
+      width: 100%;
+      mat-card{
+      min-width: 95vw;
+      max-width: 95vw;
+
+    }
+    }
+
+    .list{
+      width: 100%;
+      margin: 12px 2px;
+    }
+
+  }
+}

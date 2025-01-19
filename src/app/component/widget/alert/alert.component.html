@@ -1,9 +1,9 @@
-<div class="alert">
-  <mat-card [ngClass]="{'error':style==0?'succes':style==1}">
+<div class="alert" *ngIf="show">
+  <mat-card [ngClass]="{'error':style==0,'success':style==1}" >
 
       <mat-card-content>
         <span>{{message}}</span>
-        <i class="ri-close-large-line" (click)="trigerAction()"></i>
+        <i class="ri-close-large-line" (click)="trigerAction()" style="color: white;"></i>
       </mat-card-content>
 
   </mat-card>

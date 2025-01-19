@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { SimulationService } from 'src/app/service/simulation.service';
+import { PdfComponent } from '../pdf/pdf/pdf.component';
 
 @Component({
   selector: 'app-details-devis',
@@ -13,7 +15,7 @@ export class DetailsDevisComponent {
 
   data:any=null;
   id:string=""
-  constructor(public activatedRoute:ActivatedRoute,public serviceSimulation:SimulationService ){
+  constructor(public activatedRoute:ActivatedRoute,public serviceSimulation:SimulationService,public pdf:PdfComponent ){
 
   }
   ngOnInit(): void {
@@ -33,6 +35,10 @@ export class DetailsDevisComponent {
         })
       }
     })
+  }
+
+  generate(){
+    this.pdf.generatePdf()
   }
 
 }

@@ -14,9 +14,7 @@ export class AccueilComponent {
    }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    // this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/subscription')
   }
 
 }

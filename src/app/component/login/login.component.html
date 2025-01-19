@@ -22,7 +22,7 @@
               </div>
               <app-alert *ngIf="viewMessage && formGroup!.value['password']!=''&&message!='' " [message]="message" [style]="type!" [action]="closeAlert"></app-alert>
               <button type ="submit" [disabled]="!formGroup!.valid">
-                <mat-spinner class="custom-spinner" *ngIf="isLoad" color="accent" diameter="18" ></mat-spinner>  {{isLoad==false?'Se connecter':''}}
+                <app-btn-loader label="Connexion" ></app-btn-loader>
               </button>
             </div>
           </form>

@@ -4,21 +4,29 @@
   top: 100px;
   margin: auto;
 
-  max-width: 800px;
+  // max-width: 1200px;
   // background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
   flex-wrap: wrap;
-  justify-content: center;
+
   header{
     justify-content: center;
     font-size: 36px;
     font-weight: 500;
     margin: 22px;
+    display: block;
+    color: white;
+  }
+  body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   mat-card{
-    // max-width: 700px;
+    max-width: 600px;
     padding: 16px;
     border-radius: 12px;
     mat-card-content{

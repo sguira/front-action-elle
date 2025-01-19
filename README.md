@@ -69,5 +69,10 @@ Pour assurer le bon fonctionnement du projet il est nécessaire de changer le li
 `src/environnement/environnement.ts` changer la valeur de la variable <u>apiUrl</u>
 
 
+# EXECUTION DE L'APPLICATION
+Pour executer l'application il faut au préalable lancer le server rest 
+- Veuillez clôner cette application et le backend dans un répertoire parent commun 
+- Copier le télécharger le fichier docker-compose dans la racine des deux répertoire 
+- RUN `docker-compose up --build` Pour lancer les deux application
 
 

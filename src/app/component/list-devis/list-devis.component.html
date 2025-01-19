@@ -7,6 +7,9 @@
 
     </app-spinner>
   </div>
+  <app-vide *ngIf="data.length==0&&isLoad==false">
+
+  </app-vide>
   <div class="body">
     <div class="list" *ngIf="data.length>0">
       <div class="item" *ngFor="let item of data">
@@ -56,6 +59,10 @@
             <mat-card-actions align="start">
               <button class="button" (click)="goToDetails(item)">
                 Voir details <i class="ri-arrow-right-line"></i>
+              </button>
+              <button class="button" (click)="goToDetails(item)">
+                <i class="ri-bookmark-3-line"></i>
+                Souscrire
               </button>
             </mat-card-actions>
 

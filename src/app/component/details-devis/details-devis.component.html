@@ -75,11 +75,11 @@
         </mat-card-content>
 
       <mat-card-actions>
-        <button mat-raised-button class="button">Faire Une Souscription</button>
+        <button mat-raised-button class="button" (click)="generate()">Faire Une Souscription</button>
       </mat-card-actions>
     </mat-card>
   </div>
-  <div class="item" *ngIf="data!=null">
+  <!-- <div class="item" *ngIf="data!=null">
     <mat-card>
         <mat-card-header>
             <mat-card-title>Produit Assurance</mat-card-title>
@@ -90,11 +90,11 @@
             Text content
         </mat-card-content>
 
-        <!-- <mat-card-footer>
+         <mat-card-footer>
             Footer
         </mat-card-footer> -->
-    </mat-card>
-  </div>
+    <!-- </mat-card> -->
+  <!-- </div> -->
 
 
 </div>

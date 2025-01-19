@@ -1,18 +1,41 @@
 
 <div class="container">
   <div class="header">
-   <div class="header">
+   <div class="header web">
     <mat-card>
 
         <!-- <img matCardImage src="Card wide image source"> -->
         <mat-card-content>
-            <a routerLink="list-amazone" routerLinkActive="active">Liste des amazones</a>
-            <a routerLink="produit-assure" routerLinkActive="active">Produit Assuré</a>
-            <a routerLink="new" routerLinkActive="active">Nouveau Produit</a>
-            <a >Subscripteur</a>
+            <a routerLink="list-amazone" routerLinkActive="active" routerLinkActive="active">Liste des amazones</a>
+            <a routerLink="produit-assure" routerLinkActive="active" routerLinkActive="active">Produit Assuré</a>
+            <a routerLink="new" routerLinkActive="active" routerLinkActive="active">Nouveau Produit</a>
+            <a routerLink="souscripteurs" routerLinkActive="active" >Subscripteur</a>
 
               <i class="ri-logout-box-line logout" aria-label="deconnexion" (click)="logout()"></i>
 
+        </mat-card-content>
+
+    </mat-card>
+  </div>
+
+  <div class="header mobile">
+    <mat-card>
+
+        <!-- <img matCardImage src="Card wide image source"> -->
+        <mat-card-content>
+
+            <div class="icon">
+              <i class="ri-menu-line" *ngIf="showMobileMenu==false" (click)="toggleMobileMenu()"></i>
+              <i class="ri-close-large-line" *ngIf="showMobileMenu" (click)="toggleMobileMenu()"></i>
+            </div>
+            <div class="item" *ngIf="showMobileMenu">
+              <a routerLink="list-amazone" routerLinkActive="active" routerLinkActive="active">Liste des amazones</a>
+            <a routerLink="produit-assure" routerLinkActive="active" routerLinkActive="active">Produit Assuré</a>
+            <a routerLink="new" routerLinkActive="active" routerLinkActive="active">Nouveau Produit</a>
+            <a routerLink="souscripteurs" routerLinkActive="active" >Subscripteur</a>
+
+              <i class="ri-logout-box-line logout" aria-label="deconnexion" (click)="logout()"></i>
+            </div>
         </mat-card-content>
 
     </mat-card>

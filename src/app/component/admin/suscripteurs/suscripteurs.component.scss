@@ -1,0 +1,44 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 18px;
+    // background-color: yellow;
+    justify-content: center;
+    .header{
+      color: white;
+    }
+    .item{
+      // max-width: 300px;
+      margin: 12px;
+      padding: 16px;
+      width: 280px;
+
+      mat-card{
+        border-radius: 8px;
+        mat-card-content{
+          .body{
+            margin: 18px 1;
+            .element{
+              border: 0.5px solid silver;
+              margin: 2px;
+              padding: 1px 18px;
+            }
+          }
+        }
+        mat-card-actions{
+          justify-content: center;
+          button{
+            width: 140px;
+            border-radius: 22px;
+          }
+        }
+      }
+    }
+  }
+}

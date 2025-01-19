@@ -1,0 +1,43 @@
+<mat-card>
+          <mat-card-header>
+            <mat-card-title>Réference : {{item['quoteReference']}}</mat-card-title>
+              <mat-card-title>
+                Montant Prime: {{item['details']['Montant Prime']|currency}}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{item['assuree']['nom']}}
+              </mat-card-subtitle>
+              <mat-card-subtitle>{{item['dateCreated'] | date }}</mat-card-subtitle>
+          </mat-card-header>
+          <!-- <img matCardImage src="Card wide image source"> -->
+          <mat-card-content>
+              <div class="info">
+                <span class="libelle">Modèle voiture</span>
+                <span> {{item['vehicule']['modele']}} </span>
+              </div>
+              <div class="info">
+                <span class="libelle">Mise en circulation</span>
+                <span> {{item['vehicule']['dateMiseCirculation'] | date}} </span>
+              </div>
+
+              <div class="info">
+                <span class="libelle">Valeur venale</span>
+                <span> {{item['vehicule']['valeurVenale'] | number}} </span>
+              </div>
+              <div class="info">
+                <span class="libelle">Puissance</span>
+                <span> {{item['vehicule']['puissance'] | number}} </span>
+              </div>
+              <div class="info" >
+                <span class="libelle">Produit Assussance</span>
+                <span> {{item['produitAssure']['nomProduit'] }} </span>
+              </div>
+          </mat-card-content>
+          <mat-card-actions align="start">
+              <!-- <button mat-button (click)="onAction1">Action1</button> -->
+              <button class="button" (click)="goToDetails(item.id)">Voir details</button>
+          </mat-card-actions>
+          <!-- <mat-card-footer>
+              Footer
+          </mat-card-footer> -->
+      </mat-card>

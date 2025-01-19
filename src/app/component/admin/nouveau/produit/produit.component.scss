@@ -1,3 +1,8 @@
+.container{
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
 
 .formulaire{
@@ -13,13 +18,14 @@
       padding: 6px;
       border: 1px solid rgba(0, 0, 0, 0.268);
       mat-checkbox{
-        font-size: 12px;
+        font-size: 11px;
       }
     }
 
     mat-card-actions{
       button{
-
+        padding: 12px;
+        width: 120px;
         &:disabled{
           background-color: silver;
         }
@@ -27,6 +33,51 @@
       // .button{
       //   background-color: red;
       // }
+    }
+  }
+}
+
+.list{
+  margin: 4px 22px;
+  border: 1px solid silver;
+  padding: 12px;
+  border-radius: 6px;
+  header{
+    color: white;
+  }
+  .body{
+    .item{
+      padding: 8px;
+      margin: 6px;
+      size: 12px;
+      background-color: rgb(18, 109, 189);
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      color: white;
+      i{
+        cursor: pointer;
+        &:hover{
+          transform: scale(1.02);
+        }
+      }
+
+    }
+  }
+}
+
+
+}
+
+@media screen and (max-width: 600px) {
+  .container{
+    width: 100%;
+    mat-card{
+      width: 95vw;
+    }
+
+    .list{
+      margin: 12px 1px;
     }
   }
 }

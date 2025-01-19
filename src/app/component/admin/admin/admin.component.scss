@@ -1,14 +1,29 @@
 *{
   overflow-x: hidden;
+  user-select: none;
 }
 
 .container{
   background-color: rgb(35, 140, 164);
-  width: 100%;
-  height: 100vh;
-  // display: flex;
-
+  // width: 100%;
+  // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-content: center;
+  // align-items: center;
   .header{
+
+
+
+    .mobile{
+      position: fixed;
+
+      z-index: 99;
+      display: none;
+      justify-content: center;
+      // background-color: red;
+    }
     mat-card{
       display: flex;
       align-content: center;
@@ -17,7 +32,7 @@
       justify-content: center;
       margin: 16px auto;
       max-width: 40em;
-      background-color: rgb(18, 61, 68);
+      background-color: rgba(18, 61, 68, 0.647);
 
 
       mat-card-content{
@@ -28,10 +43,7 @@
           text-decoration: none;
           // border: 1px solid white;
           margin: 6px;
-          &:active{
-            background-color: blue;
-            color: red;
-          }
+
         }
 
           i{
@@ -55,5 +67,59 @@
     // max-width: 75vw;
     justify-content: center;
   }
+  .active{
+            // background-color: blue;
+            color: red !important;
+          }
 
+}
+
+
+@media screen and (max-width:680px) {
+
+  .container{
+    .web{
+          display: none;
+        }
+    .header{
+      .mobile{
+      display: flex;
+        flex-direction: column;
+        margin: 16px;
+        // height: 300px;
+      mat-card{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        .icon{
+          // background-color: red;
+          justify-content: center;
+          padding: 12px;
+          margin: auto;
+          display: flex;
+          i{
+            font-size: 36px;
+          }
+        }
+        .item{
+          display: flex;
+          flex-direction: column;
+          a{
+            padding: 14px;
+            // background-color: yellow;
+          }
+        }
+      }
+    }
+    }
+  }
+  body{
+    position: relative;
+    top: 100px;
+    // margin: 22px;
+    // background-color: red;
+  }
 }

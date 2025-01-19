@@ -11,6 +11,8 @@ export class AdminComponent {
 
   routeActive:any;
 
+  showMobileMenu=false;
+
   constructor(private router:Router,private auth:AuthService){}
 
   ngOnInit(): void {
@@ -28,6 +30,10 @@ export class AdminComponent {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('ROLE');
     this.router.navigateByUrl('login')
+  }
+
+  toggleMobileMenu(){
+    this.showMobileMenu=!this.showMobileMenu
   }
 
 }

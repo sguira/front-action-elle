@@ -47,9 +47,13 @@
                 </div>
 
 
+          <div class="alert" *ngIf="responseCode">
+            <app-alert [message]="responseMessage" [style]=responseCode>
 
+            </app-alert>
+          </div>
           </mat-card-content>
-          <mat-card-actions align="start">
+          <mat-card-actions>
               <div class="btn">
                   <button class="button" type="submit"  (click)="newCategorie()">Ajouter</button>
                   <button class="button" type="reset">Annuler</button>
@@ -61,47 +65,9 @@
       </form>
     </div>
     <!-- Garantie -->
+
     <div class="garantie" *ngIf="currentBtn=='garantie'">
-      <form [formGroup]="formGarantie!" >
-      <mat-card>
-          <mat-card-header>
-              <mat-card-title>Nouvelle Garantie</mat-card-title>
-              <mat-card-subtitle>Subtitle</mat-card-subtitle>
-          </mat-card-header>
-
-          <mat-card-content>
-
-                <div class="form-group">
-                  <label for="categorie">Nom Garantie(*)</label>
-                  <input type="text" name="garantie" formControlName="garantie" />
-                </div>
-
-                <div class="form-group">
-                  <label for="categorie">Taux de prime</label>
-                  <input type="number" name="rate" formControlName="rate" />
-                </div>
-                <div class="form-group">
-                  <label for="categorie">Age Maximum</label>
-                  <input type="number" name="min_age" formControlName="maxAge" />
-                </div>
-                <div class="form-group">
-                  <label for="categorie">Prime minimal</label>
-                  <input type="number" name="code" formControlName="minPrime" />
-                </div>
-
-
-
-          </mat-card-content>
-          <mat-card-actions align="start">
-              <div class="btn">
-                  <button class="button" type="submit"  (click)="newGarantie()">Ajouter</button>
-                  <button class="button" type="reset">Annuler</button>
-                </div>
-
-          </mat-card-actions>
-
-      </mat-card>
-      </form>
+      <app-garantie></app-garantie>
     </div>
 
     <!-- Produit Assurance -->

@@ -39,6 +39,15 @@ $app-front-actionelle-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 background-color: rgb(35, 140, 164);
+
+  .btn{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+  }
+
 }
 
 .button{
@@ -51,7 +60,8 @@ background-color: rgb(35, 140, 164);
         font-size: 14px;
         cursor: pointer;
         transition: 100ms ease-in;
-        display: inline;
+        display: flex;
+        justify-content: center;
         &:hover{
           transform: scale(1.05);
         }
@@ -120,3 +130,9 @@ select{
 
   }
 }
+*{
+  user-select: none;
+}
+
+
+

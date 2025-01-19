@@ -28,45 +28,45 @@
              </div>
              <div class="form-group">
                 <label for="nom">Numéro d'immatriculation</label>
-                <input type="text" id="nom" name="matricule" placeholder="Ex. 200 AA 123" formControlName="matriculation">
+                <input type="text"  name="matricule" placeholder="Ex. 200 AA 123" formControlName="matriculation">
              </div>
               <div class="form-group">
                 <label for="nom">Couleur</label>
-                <input type="text" id="nom" name="" placeholder="Ex. Rouge" formControlName="couleur">
+                <input type="text"  name="couleur" placeholder="Ex. Rouge" formControlName="couleur">
              </div>
             </div>
             <div class="group">
               <div class="form-group">
                   <label for="nom">Modèle de la voiture</label>
-                  <input type="text" id="nom" name="" placeholder="Ex. Mercedess 190" formControlName="nomModel">
+                  <input type="text" name="modele" placeholder="Ex. Mercedess 190" formControlName="nomModel">
               </div>
               <div class="form-group">
                 <label for="nom">Prix D'achat</label>
-                <input type="number"  placeholder="Ex. 10 000 000 FCFA" formControlName="prixDachat">
+                <input type="number" name="achat" placeholder="Ex. 10 000 000 FCFA" formControlName="prixDachat">
              </div>
              <div class="form-group">
                 <label for="nom">Valeur Vénale</label>
-                <input type="number" placeholder="Ex. 4 000 000 FCFA" formControlName="valeurVenale">
+                <input type="number" name="venale" placeholder="Ex. 4 000 000 FCFA" formControlName="valeurVenale">
              </div>
 
             </div>
             <div class="group">
               <div class="form-group">
                   <label for="puissance">Puissance (cv)</label>
-                  <input type="number" id="nom" name="" placeholder="Ex. 7" formControlName="puissance">
+                  <input type="number" name="puissance" placeholder="Ex. 7" formControlName="puissance">
               </div>
               <div class="form-group">
                   <label for="nom">Nombre de siège</label>
-                  <input type="number" id="nom" name="" placeholder="Ex. 4" formControlName="nbSieges">
+                  <input type="number"  name="siege" placeholder="Ex. 4" formControlName="nbSieges">
               </div>
               <div class="form-group">
                 <label for="nom">Nombre de portes</label>
-                <input type="text" id="nom" placeholder="Ex. 4" formControlName="nbPortes">
+                <input type="text" name="4" placeholder="Ex. 4" formControlName="nbPortes">
              </div>
              <div class="form-group">
                 <label for="nom">Catégorie Véhicule</label>
-                <select name="" id="" formControlName="categorie">
-                  <option *ngFor="let item of categorieService.categorieVoitures" [value]="item.id">{{item.code}}</option>
+                <select name="categorie"  formControlName="categorie">
+                  <option *ngFor="let item of user.categorieVoitures" [value]="item.id">{{item.code}}</option>
 
                 </select>
              </div>
@@ -76,7 +76,7 @@
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
           <button (click)="backForm()"  class="button" [disabled]="currentForm==1" >Precedent</button>
-          <button mat-button type="submit" (click)="nextForm()"  class="button" [disabled]="formVehicule!.valid==false">Suivant</button>
+          <button mat-button type="submit" (click)="nextForm()"  class="button" [disabled]="formVehicule?.valid==false" >Suivant</button>
       </mat-card-actions>
 
   </mat-card>
@@ -86,11 +86,53 @@
     <form [formGroup]="formPersonne!" (ngSubmit)="validationAssure()">
       <mat-card-header>
           <mat-card-title>Information de L'Assuré</mat-card-title>
-          <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+          <button class="button" (click)="selectedClient()">
+            {{
+              selectClient==false?'Selectionnez un client':'Saisie Manuelle'
+            }}
+          </button>
       </mat-card-header>
       <!-- <img matCardImage src="Card wide image source"> -->
       <mat-card-content>
-         <div class="formulaire">
+        <div class="select-client" *ngIf="selectClient">
+          <!-- <app-spinner label="Chargement des clients" [diameter]=36>
+
+          </app-spinner> -->
+          <label for="">
+            Liste des clients
+          </label>
+          <div class="list">
+            <div class="item" *ngFor="let item of clients" (click)="selectionnezClient(item)" [ngClass]="{'selected':item==currentClient}" >
+              <div>
+                <i class="ri-user-line"></i>
+                <span>
+                  {{item['nom']}}
+                </span>
+              </div>
+              <div>
+                <i class="ri-smartphone-fill"></i>
+                <span>
+                  {{item['telephone']}}
+                </span>
+              </div>
+              <div>
+                <i class="ri-map-2-line"></i>
+                <span>
+                  {{item['adresse']}}
+                </span>
+              </div>
+            </div>
+            <div class="vide" *ngIf="clients.length==0">
+              <h4>Aucun Client</h4>
+            </div>
+          </div>
+          <!-- <div class="btn">
+            <button  class="button" [disabled]="currentClient==null">Confirmer</button>
+            <button  class="button" (click)="selectedClient()">Annuler</button>
+          </div> -->
+        </div>
+         <div class="saisis">
+          <div class="formulaire" *ngIf="selectClient==false">
             <div class="form-group">
                 <label for="nom">Nom Complet</label>
                 <input type="text" id="nom" name="nom" placeholder="Ex. Koffi Serge" formControlName="name">
@@ -113,15 +155,16 @@
              </div>
              <div class="form-group">
                 <label for="nom">Ville</label>
-                <input type="text"  name="" placeholder="Ex.Abidjan" formControlName="city">
+                <input type="text"  name="city" placeholder="Ex.Abidjan" formControlName="city">
              </div>
             </div>
 
          </div>
+         </div>
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
           <button mat-button (click)="backForm()" class="button" >Precedent</button>
-          <button type="submit" (click)="nextForm()" class="button" [disabled]="formPersonne!.valid==false">Suivant</button>
+          <button type="submit" (click)="nextForm()" class="button" [disabled]="(formPersonne!.valid==false&&currentClient==null) || selectClient==false">Suivant</button>
       </mat-card-actions>
     </form>
   </mat-card>
@@ -214,10 +257,15 @@
           </select>
           <label for="" *ngIf="selectProductByCode(formVehicule!.value['categorie']).length==0" style="color: red;">Aucun produit disponible pour la catégorie selectionné</label>
           </div>
+
+        <app-alert *ngIf="resultCode!=null" [style]="resultCode" [message]="resultMessage"></app-alert>
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
           <button mat-button (click)="backForm()" class="button">Precedent</button>
-          <button mat-button (click)="souscription()" class="button"  [disabled]="formProduct.valid==false">Suivant</button>
+          <button mat-button (click)="souscription()" class="button"  [disabled]="formProduct.valid==false">
+            <mat-progress-spinner mode="indeterminate" color="warn" diameter="15" *ngIf="isLoad"></mat-progress-spinner>
+            {{isLoad==false? 'Faire la suscription':''}}
+          </button>
       </mat-card-actions>
     </form>
   </mat-card>

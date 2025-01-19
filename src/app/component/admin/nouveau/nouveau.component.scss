@@ -1,11 +1,11 @@
 .container{
-  margin: 76px auto;
-  max-width: 700px;
+  // margin: 76px auto;
+  // max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
   // background-color: red;
   align-self: center;
-  justify-content: space-between;
+  justify-content: center;
   align-items: start;
   .list-btn{
     button{
@@ -31,12 +31,51 @@
   .formulaire{
     margin: 18px;
     mat-card{
-      min-width: 300px;
+      mat-card-actions{
+        display: flex;
+        flex-direction: row;
+        // background-color: red;
+        .btn{
+          // background-color: red;
+          display: flex;
+          justify-content: center;
+          margin: auto;
+          .button{
+            width: 100px;
+            padding: 14px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: row;
+          }
+        }
+
+      }
     }
 
-    button{
-      width: 160px;
-    }
+
   }
 
+  .list{
+    display: flex;
+    flex-direction: column;
+
+  }
+
+}
+
+@media screen and (max-width:680px) {
+  .list-btn{
+    // background-color: red;
+    display: flex;
+    flex-direction: row;
+
+  }
+  .btn{
+    margin: auto  ;
+    .button{
+    max-width: 80px;
+    border-radius: 26px;
+    // color: red;
+  }
+  }
 }

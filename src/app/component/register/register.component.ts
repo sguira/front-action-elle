@@ -1,6 +1,7 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { LoadingService } from 'src/app/service/loading.service';
 
@@ -14,8 +15,9 @@ export class RegisterComponent {
 
   formGroup?:FormGroup;
   isLoad:boolean=false;
-
-  constructor(fb:FormBuilder,private registerService:AuthService,public loading:LoadingService){
+  resultMessage=""
+  resultCode:any=null
+  constructor(fb:FormBuilder,private registerService:AuthService,public loading:LoadingService,public router:Router){
     this.formGroup=fb.group({
       username:['',Validators.required],
       name:['',Validators.required],
@@ -38,13 +40,22 @@ export class RegisterComponent {
     const data={
       'username':this.formGroup!.value['username'],
       'password':this.formGroup!.value['password'],
-      'telephone':this.formGroup!.value['telephone'],
+      'telephone':this.formGroup!.value['phone'],
       'adresse':this.formGroup!.value['adresse'],
-      'cin':this.formGroup!.value['cin']
+      'cin':this.formGroup!.value['cin'],
+      'name':this.formGroup!.value['name']
     }
     this.registerService.register(data).subscribe((value:HttpResponse<any>)=>{
-      console.log(value.status);
+      console.log();
+      this.router.navigateByUrl('/login')
     },(error)=>{
+      this.resultCode=0;
+      this.resultMessage="une erreur est survenue"
+      console.log('error')
+      setTimeout(()=>{
+        this.resultCode=null;
+        this.resultMessage=""
+      },4000)
       console.log("Error inscription"+error)
     })
   }

@@ -28,6 +28,18 @@ import { ListSuscriptionComponent } from './component/list-suscription/list-susc
 import { ListDevisComponent } from './component/list-devis/list-devis.component';
 import { DetailsDevisComponent } from './component/details-devis/details-devis.component';
 import { SpinnerComponent } from './component/widget/spinner/spinner.component';
+import { DetailsSouscriptionComponent } from './component/details-souscription/details-souscription.component';
+import { GarantieComponent } from './component/admin/nouveau/garantie/garantie.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { VideComponent } from './component/widget/vide/vide.component';
+import { SuscripteursComponent } from './component/admin/suscripteurs/suscripteurs.component';
+import { PdfComponent } from './component/pdf/pdf/pdf.component';
+import { BtnLoaderComponent } from './component/widget/btn-loader/btn-loader.component';
+import { ItemUsersComponent } from './component/widget/item-users/item-users.component';
+import { ItemSouscriptionsComponent } from './component/widget/item-souscriptions/item-souscriptions.component';
+import { DetailAmazoneComponent } from './component/admin/detail-amazone/detail-amazone.component';
+import { ListClientComponent } from './component/list-client/list-client.component';
+
 // import 'angular-spinner';
 @NgModule({
   declarations: [
@@ -48,7 +60,18 @@ import { SpinnerComponent } from './component/widget/spinner/spinner.component';
     ListSuscriptionComponent,
     ListDevisComponent,
     DetailsDevisComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DetailsSouscriptionComponent,
+    GarantieComponent,
+    VideComponent,
+    SuscripteursComponent,
+    PdfComponent,
+    BtnLoaderComponent,
+    ItemUsersComponent,
+    ItemSouscriptionsComponent,
+    DetailAmazoneComponent,
+    ListClientComponent,
+
 
   ],
   imports: [
@@ -61,7 +84,8 @@ import { SpinnerComponent } from './component/widget/spinner/spinner.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   providers: [
     {

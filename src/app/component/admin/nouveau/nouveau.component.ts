@@ -13,7 +13,10 @@ export class NouveauComponent {
   currentBtn="categorie"
 
   formCat?:FormGroup
-  formGarantie?:FormGroup
+
+
+  responseCode:any=null;
+  responseMessage="Categorie ajoutée avec success"
 
   constructor(fb:FormBuilder,public admin:AdminService){
     this.formCat=fb.group({
@@ -22,12 +25,7 @@ export class NouveauComponent {
       description:[''],
     })
 
-    this.formGarantie=fb.group({
-      garantie:['',Validators.required],
-      rate:['',Validators.required],
-      maxAge:[''],
-      minPrime:['']
-    })
+
 
 
   }
@@ -44,19 +42,20 @@ export class NouveauComponent {
       'code':this.formCat?.value['code'],
     }).subscribe((value)=>{
       console.log(value)
+      setTimeout(()=>{
+        this.responseCode=null;
+        this.responseMessage="Categorie ajouté"
+      },4000)
+    },(e)=>{
+      this.responseCode=0;
+      this.responseMessage="Une erreur est survenu"
+      setTimeout(()=>{
+        this.responseCode=null;
+        this.responseMessage=""
+      },4000)
     })
   }
 
-  newGarantie(){
-    this.admin.saveGarantie({
-      'name':this.formGarantie?.value['garantie'],
-      'maxAge':this.formGarantie?.value['maxAge'],
-      'rate':this.formGarantie?.value['rate'],
-      'minPrime':this.formGarantie?.value['minPrime'],
-    }).subscribe((value)=>{
-      console.log(value)
-      this.formGarantie!.reset()
-    })
-  }
+
 
 }

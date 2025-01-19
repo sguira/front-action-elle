@@ -30,7 +30,7 @@ export class ListDevisComponent {
 
   goToDetails(item:any){
     // let sendData=this.data;
-    this.router.navigateByUrl(`/details-devis/${item['id']}`)
+    this.router.navigateByUrl(`/list-devis/${item['id']}`)
   }
 
 

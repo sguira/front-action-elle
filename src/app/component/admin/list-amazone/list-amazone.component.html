@@ -1,40 +1,28 @@
 
 <div class="container">
-  <img height="32" width="32" src="img/admin-fill.svg" />
+  <!-- <img height="32" width="32" src="img/admin-fill.svg" /> -->
   <div class="header">
     <div class="titre">
        <h1>
-      Liste des Amazone
-    </h1>
+        Liste des Amazone
+      </h1>
     </div>
     <div class="btn">
       <button class="button" ><i class="ri-user-add-line"></i> Nouvelle Amazone</button>
     </div>
   </div>
 
-  <div class="list">
+  <div class="spinner">
+    <app-spinner label="chargement" [diameter]=56 *ngIf="isLoad">
 
-    <div class="item" *ngFor="let item of utilisateurs">
-      <mat-card>
-          <mat-card-header>
-              <mat-card-title>
-                {{item.name??"Pas mentionné"}}
-              </mat-card-title>
-              <mat-card-subtitle>{{item.adresse??"Neant"}}</mat-card-subtitle>
-          </mat-card-header>
-          <!-- <img matCardImage src="Card wide image source"> -->
-          <mat-card-content>
-              <span>
-                {{item.phone??"Pas mentionné"}}
-              </span>
-          </mat-card-content>
-          <mat-card-actions align="end">
-              <button mat-button class="button" ><i class="ri-eye-line"></i> Voir details</button>
-              <button mat-button class="button"><i class="ri-user-unfollow-line"></i> Bloquer</button>
-          </mat-card-actions>
+    </app-spinner>
+  </div>
 
-      </mat-card>
-    </div>
+    <div class="list">
+
+    <app-item-users *ngFor="let item of utilisateurs" [item]="item">
+
+    </app-item-users>
 
   </div>
 </div>

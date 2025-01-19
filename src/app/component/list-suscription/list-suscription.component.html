@@ -1,51 +1,24 @@
 <div class="container">
+
   <div class="header">
     <h1>Votre Liste de subscription</h1>
   </div>
-  <div class="spinner" *ngIf="isLoad">
-    <app-spinner label="Chargement des souscriptions" [diameter]=100 couleur="white">
+
+  <app-vide *ngIf="data.length==0&&isLoad==false">
+
+  </app-vide>
+
+  <div class="spinner">
+    <app-spinner label="Chargement des souscriptions" [diameter]=100 *ngIf="isLoad">
 
     </app-spinner>
   </div>
-  <div class="list" *ngIf="data.length>0">
-    <div class="item" *ngFor="let item of data">
-      <mat-card>
-          <mat-card-header>
-              <mat-card-title>{{item['assuree']['nom']}}</mat-card-title>
-              <mat-card-subtitle>{{item['dateCreated'] | date }}</mat-card-subtitle>
-          </mat-card-header>
-          <!-- <img matCardImage src="Card wide image source"> -->
-          <mat-card-content>
-              <div class="info">
-                <span class="libelle">Modèle voiture</span>
-                <span> {{item['vehicule']['modele']}} </span>
-              </div>
-              <div class="info">
-                <span class="libelle">Mise en circulation</span>
-                <span> {{item['vehicule']['dateMiseCirculation'] | date}} </span>
-              </div>
 
-              <div class="info">
-                <span class="libelle">Valeur venale</span>
-                <span> {{item['vehicule']['valeurVenale'] | number}} </span>
-              </div>
-              <div class="info">
-                <span class="libelle">Puissance</span>
-                <span> {{item['vehicule']['puissance'] | number}} </span>
-              </div>
-              <div class="info" >
-                <span class="libelle">Produit Assussance</span>
-                <span> {{item['produitAssure']['nomProduit'] }} </span>
-              </div>
-          </mat-card-content>
-          <mat-card-actions align="start">
-              <!-- <button mat-button (click)="onAction1">Action1</button> -->
-              <button class="button">Voir details</button>
-          </mat-card-actions>
-          <!-- <mat-card-footer>
-              Footer
-          </mat-card-footer> -->
-      </mat-card>
+  <div class="list" *ngIf="data">
+    <div class="item" *ngFor="let item of data">
+      <app-item-souscriptions [item]="item">
+
+      </app-item-souscriptions>
     </div>
   </div>
 </div>

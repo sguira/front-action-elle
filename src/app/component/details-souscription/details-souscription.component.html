@@ -1,0 +1,197 @@
+<div class="container">
+
+  <div class="spinner" *ngIf="isLoad">
+    <app-spinner label="Chargement d'une souscription" [diameter]=75>
+
+    </app-spinner>
+  </div>
+
+  <div class="row" *ngIf="data">
+    <!-- Container pour les informations sur le clients -->
+
+    <div class="item">
+
+      <mat-card>
+          <mat-card-header>
+              <mat-card-title>Client</mat-card-title>
+              <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img matCardImage src="Card wide image source"> -->
+          <mat-card-content>
+
+
+            <div class="element">
+              <span>
+                Nom Client: {{data['assuree']['nom']}}
+              </span>
+
+            </div>
+            <div class="element">
+              <span>
+                Adresse:  {{data['assuree']['adresse']}}
+              </span>
+
+            </div>
+            <div class="element">
+              <span>
+                Nom Client: {{data['assuree']['nom']}}
+              </span>
+
+            </div>
+            <div class="element">
+              <span>
+                Téléphone: {{data['assuree']['telephone']  }}
+              </span>
+
+            </div>
+            <div class="element">
+              <span>
+                Vile: {{data['assuree']['ville']}}
+              </span>
+
+              <span>
+                Type: {{data['assuree']['type']}}
+              </span>
+
+            </div>
+            </mat-card-content>
+        <mat-card-actions>
+          <div class="alert" *ngIf="showAlert==true">
+            <span>un problème est survenu</span>
+          </div>
+          <button class="button" *ngIf="data['assuree']['type']=='PROSPECT'"  (click)="changeAssureStatus(data['assuree']['id'])">
+            <app-btn-loader label="Devenir Client" ></app-btn-loader>
+          </button>
+        </mat-card-actions>
+        <mat-card-footer>
+
+        </mat-card-footer>
+      </mat-card>
+
+    </div>
+    <!-- Informations sur le devis  -->
+    <div class="item">
+
+      <mat-card>
+          <mat-card-header>
+              <mat-card-title>Information Souscription</mat-card-title>
+              <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img matCardImage src="Card wide image source"> -->
+          <mat-card-content>
+
+
+            <div class="element">
+              <span>
+                Date Création:
+              </span>
+                {{data['dateCreated']}}
+            </div>
+
+            <div class="element">
+              <span>
+                Produit D'assurance
+              </span>
+                {{data['produitAssure']['nomProduit']}}
+            </div>
+            <div class="prime">
+              <div class="item" style="color: white;padding: 12px;">
+                <span>Total Prime</span>
+                <span>
+                  {{
+                    data['details']['Montant Prime'] | currency
+                  }}
+                </span>
+              </div>
+              <div class="details">
+                <div class="item">
+
+                </div>
+              </div>
+            </div>
+            <div class="garanties">
+
+                <label for="">
+                  Garantie:
+                </label>
+                <div class="garantie" *ngFor="let gar of data['produitAssure']['garanties']" >
+                  {{gar.name}}
+                </div>
+
+            </div>
+
+
+
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button (click)="downloadAttestation()" class="button">
+                <i class="ri-upload-cloud-2-fill"></i>
+                Télécharger Attestation
+              </button>
+            </mat-card-actions>
+
+      </mat-card>
+
+    </div>
+    <!-- Informations sur le véhicule -->
+    <div class="item">
+
+      <mat-card>
+          <mat-card-header>
+              <mat-card-title>Véhicule</mat-card-title>
+              <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img matCardImage src="Card wide image source"> -->
+          <mat-card-content>
+
+
+            <div class="element">
+              <span>
+                Modèle:
+              </span>solo
+                {{data['vehicule']['modele']}}
+            </div>
+            <div class="element">
+              <span>
+                Immatriculation:
+              </span>
+                {{data['vehicule']['immatriculation']}}
+            </div>
+            <div class="element">
+              <span>
+                Puissance Cv:
+              </span>
+                {{data['vehicule']['puissance']}}
+            </div>
+            <div class="element">
+              <span>
+                Couleur:
+              </span>
+                {{data['vehicule']['color']}}
+            </div>
+            <div class="element">
+              <span>
+                Mise circulation:
+              </span>
+               {{data['vehicule']['dateMiseCirculation'] |json }}
+            </div>
+            <div class="element">
+              <span>
+                Categotie:
+              </span>
+               {{data['vehicule']['immatriculation']}}
+            </div>
+            <div class="element">
+              <span>
+                Mise circulation:
+              </span>
+               {{data['vehicule']['immatriculation']}}
+            </div>
+            </mat-card-content>
+
+      </mat-card>
+
+    </div>
+  </div>
+</div>

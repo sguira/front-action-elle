@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="header">
+    <h1>
+      La liste des souscripteurs
+    </h1>
+  </div>
+  <app-spinner label="Chargement des assurés" [diameter]=68 *ngIf="isLoad">
+
+  </app-spinner>
+  <div class="list">
+    <div class="item" *ngFor="let item of souscripteurs">
+      <mat-card>
+          <mat-card-header>
+              <mat-card-title>{{item.nom}}</mat-card-title>
+              <mat-card-subtitle>{{item.telephone}}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+              <div class="body">
+                <div class="element">
+                  <p>Adresse : {{item.adresse}}</p>
+                </div>
+                <div class="element">
+                  <p>Ville : {{item.ville}}</p>
+                </div>
+                <div class="element">
+                  <p>Carte d'identité : {{item.ville}}</p>
+                </div>
+                 <div class="element">
+                  <p>TYPE : {{item.type}}</p>
+                </div>
+              </div>
+          </mat-card-content>
+          <mat-card-actions align="start">
+              <!-- <button mat-button (click)="onAction1">Action1</button> -->
+              <button class="button">
+                <details></details>
+              </button>
+          </mat-card-actions>
+          <!-- <mat-card-footer>
+              Footer
+          </mat-card-footer> -->
+      </mat-card>
+    </div>
+  </div>
+</div>

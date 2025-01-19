@@ -39,12 +39,14 @@
           border-radius: 12px;
         }
         mat-card-actions{
-          margin: 18px;
+          margin: 8px;
           display: flex;
           justify-content: center;
           button{
-            min-width: 200px;
+            // min-width: 200px;
             border-radius: 18px;
+            // font-size: 13px;
+            padding: 12px;
           }
         }
       }

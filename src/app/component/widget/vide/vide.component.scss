@@ -1,0 +1,15 @@
+.empty{
+  justify-content: center;
+  // max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  margin: 86px;
+  img{
+    width: 350px;
+    height: 200px;
+  }
+}

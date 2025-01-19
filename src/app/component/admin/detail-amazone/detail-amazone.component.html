@@ -1,0 +1,47 @@
+
+<div class="spinner">
+  <app-spinner label="Chargement des details" [diameter]=86>
+
+  </app-spinner>
+</div>
+
+<body>
+
+  <div class="header" *ngIf="data">
+    <h1>Details de L'amazone</h1>
+    <div class="user"  >
+      <div class="element">
+        <i class="ri-user-line"></i>
+        <span>
+          {{data['amazone']['name']}}
+        </span>
+      </div>
+      <div class="element">
+        <i class="ri-id-card-line"></i>
+        <span>
+          {{data['amazone']['cin']}}
+        </span>
+      </div>
+      <div class="element">
+        <i class="ri-mail-fill"></i>
+        <span>
+          {{data['amazone']['username']}}
+        </span>
+      </div>
+    </div>
+    <div class="summary">
+      <div class="element">
+        <div>Prime Total</div>
+        <div><i class="ri-wallet-3-fill"></i> {{data['primeTotal']}} </div>
+      </div>
+    </div>
+  </div>
+  <div class="liste" *ngIf="data!=null">
+    <div class="item" *ngFor="let item of data['souscriptions']">
+      <app-item-souscriptions [item]="item">
+
+      </app-item-souscriptions>
+    </div>
+  </div>
+
+</body>

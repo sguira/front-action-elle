@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class AlertComponent {
 
+  show=true;
+
   @Input()
   message:string=''
 
@@ -14,9 +16,10 @@ export class AlertComponent {
   style:number=1
 
   @Input()
-  action!:()=>void;
+  action!:Function;
 
   trigerAction(){
+    this.show=false;
     if(this.action!=null){
       this.action()
     }

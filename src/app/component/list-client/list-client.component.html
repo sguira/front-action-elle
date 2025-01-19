@@ -1,0 +1,67 @@
+<div class="container">
+
+  <app-spinner label="Chargement des clients" [diameter]=68 *ngIf="isLoad&&btnListen==false">
+
+  </app-spinner>
+
+  <div class="header">
+    <div class="titre">
+      <h1 style="color: white;">
+        Liste des clients
+      </h1>
+    </div>
+  </div>
+
+  <div class="body" *ngIf="clients.length>0">
+    <div class="list">
+      <div class="item" *ngFor="let item of clients">
+        <mat-card>
+
+            <mat-card-content>
+                <div class="avatar">
+                  <i class="ri-user-2-fill"></i>
+                </div>
+                <div class="info">
+                  <h4 style="justify-content: center;">{{item.nom}}</h4>
+                  <span>
+                    <i class="ri-smartphone-line"></i>
+                    {{item.telephone}}
+                  </span>
+
+                  <span>
+                    <i class="ri-map-pin-line"></i>
+                    {{item.adresse}}
+                  </span>
+
+                  <span>
+                    <i class="ri-id-card-line"></i>
+                    {{
+                      item.cin
+                    }}
+                  </span>
+                  <span style="color: blakc;">
+                    <i class="ri-file-user-line"></i>
+                    {{
+                      item.status
+                    }}
+                  </span>
+
+                </div>
+
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button class="button" (click)="gotoSubscription(item.id)">
+                  Voir détail
+              </button>
+              <button class="button" *ngIf="item.status=='PROSPECT'" (click)="changeStatus(item.id)">
+                <app-btn-loader label="Changer Status" *ngIf="clientClientId==item.id"></app-btn-loader>
+                {{clientClientId!=item.id?'Changer status':''}}
+              </button>
+            </mat-card-actions>
+
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

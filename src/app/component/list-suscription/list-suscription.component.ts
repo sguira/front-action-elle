@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from 'src/app/service/loading.service';
 import { SouscriptionService } from 'src/app/service/souscription.service';
 
@@ -10,8 +11,8 @@ import { SouscriptionService } from 'src/app/service/souscription.service';
 export class ListSuscriptionComponent {
 
   isLoad=false;
-  data:any
-  constructor(public suscriptionService:SouscriptionService,public loading:LoadingService){}
+  data:any[]=[]
+  constructor(public suscriptionService:SouscriptionService,public loading:LoadingService,public router:Router,public activated:ActivatedRoute){}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -19,9 +20,22 @@ export class ListSuscriptionComponent {
     this.loading.$progress.subscribe((e)=>{
       this.isLoad=e;
     })
-    this.suscriptionService.allSuscription().subscribe((res:any)=>{
-      this.data=res
+    this.activated.params.subscribe(value=>{
+      // console.log("I")
+      console.log("Identifian"+value['id'])
+      if(value['id']==undefined){
+          this.suscriptionService.getSuscription(null).subscribe((res:any)=>{
+          this.data=res
+        })
+      }
+      else{
+        this.suscriptionService.getSubscriptionByCustomer(value['id']).subscribe((element:any)=>{
+          this.data=element
+        })
+      }
     })
   }
+
+
 
 }

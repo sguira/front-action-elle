@@ -3,10 +3,12 @@
 
       <mat-card-content>
           <div class="items">
-            <a routerLink="subscription" routerLinkActive="is-active" >Souscription</a>
-            <a routerLink="simulation" routerLinkActive="active" >Simulation</a>
-            <a routerLink="list-souscriptions" routerLinkActive="active" >Mes Souscription</a>
-            <a routerLink="list-devis" routerLinkActive="active" >Mes Dévis</a>
+
+            <a  [routerLinkActive]="active" routerLink="subscription" [routerLinkActiveOptions]="{exact:false}" >Souscription</a>
+            <a routerLinkActive="active" routerLink="simulation" [routerLinkActiveOptions]="{exact:true}" (click)="viewMobileMenu()"  >Simulation</a>
+            <a routerLink="list-souscriptions" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" (click)="viewMobileMenu()">Mes Souscription</a>
+            <a routerLink="list-devis" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" (change)="viewMobileMenu()">Mes Dévis</a>
+            <a routerLink="list-clients" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" (change)="viewMobileMenu()">Mes Clients</a>
             <a (click)="logout()"><i class="ri-logout-box-line" ></i></a>
           </div>
       </mat-card-content>
@@ -21,12 +23,12 @@
             <i class="ri-menu-line" (click)="viewMobileMenu()" *ngIf="showMenu==false"></i>
             <i class="ri-close-large-line" (click)="viewMobileMenu()" *ngIf="showMenu==true"></i>
           </div>
-          <div class="list" *ngIf="showMenu==true">
+          <div class="list" *ngIf="showMenu">
             <div class="items">
-            <a routerLink="subscription">Souscription</a>
-            <a routerLink="simulation">Simulation</a>
-            <a routerLink="list-souscriptions">Mes Souscription</a>
-            <a routerLink="list-devis">Mes Dévis</a>
+            <a routerLink="subscription" (click)="viewMobileMenu()">Souscription</a>
+            <a routerLink="simulation" (click)="viewMobileMenu()">Simulation</a>
+            <a routerLink="list-souscriptions" (click)="viewMobileMenu()">Mes Souscription</a>
+            <a routerLink="list-devis" (click)="viewMobileMenu()">Mes Dévis</a>
             <a (click)="logout()"><i class="ri-logout-box-line"></i></a>
           </div>
           </div>

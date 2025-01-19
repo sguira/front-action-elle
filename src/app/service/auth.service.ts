@@ -32,6 +32,10 @@ export class AuthService {
     return localStorage.getItem('ROLE');
   }
 
+  getUserId(){
+    return localStorage.getItem('USER_ID')
+  }
+
 
   register(data:any):Observable<any>{
     return this.http.post(`${this.baseUrl}/auths/register`,data)
@@ -52,6 +56,7 @@ export class AuthService {
 
         if(value==false){
           console.log("ok")
+          // this.isAuth=true;
           this.isAuth=true
           if(this.getRole()=='ROLE_ADMIN'){
             this.isAdmin=true

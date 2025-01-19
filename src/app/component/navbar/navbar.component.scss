@@ -31,11 +31,7 @@
         text-transform: none;
         text-decoration: none;
         color: white;
-        &:active{
-          color: red;
-          // background-color: yellow;
-          font-weight: bold;
-        }
+
 
 
 
@@ -43,10 +39,16 @@
     }
   }
 }
-
 .active{
-  color: red;
-}
+          color: rgb(8, 8, 9) !important;
+  }
+
+// .active1{
+//   color: white;
+//   // background-color:green ;
+//   text-decoration: underline;
+//   border-radius: 28px;
+// }
 
 @media screen and (max-width:500px) {
 

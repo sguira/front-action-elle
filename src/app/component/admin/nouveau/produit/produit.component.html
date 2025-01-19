@@ -1,4 +1,5 @@
-<div class="formulaire">
+<div class="container">
+  <div class="formulaire">
       <form [formGroup]="formProduit!" (ngSubmit)="addProduit()" >
       <mat-card>
           <mat-card-header>
@@ -17,7 +18,7 @@
             <div class="select-group">
                     <div>
                         <label for="">Selectionnez les garanties Incluses</label>
-                        <div *ngFor="let item of categorie.garanties;let i=index">
+                        <div *ngFor="let item of admin.userService.garanties;let i=index">
                           <mat-checkbox [checked]="isCheck(item.id)" (change)="checkElement(item.id)">
                             {{item.name}}
                           </mat-checkbox>
@@ -29,7 +30,7 @@
                   <div class="select-group">
                     <div>
                         <label for="">Catégories éligible</label>
-                        <div *ngFor="let item of categorie.categorieVoitures;let i=index">
+                        <div *ngFor="let item of admin.userService.categorieVoitures;let i=index">
                           <mat-checkbox [checked]="isCheckCategorie(item.id)" (change)="checkElementCategorie(item.id)">
                             {{item.code}}
                           </mat-checkbox>
@@ -38,7 +39,11 @@
                     </div>
                   </div>
           </div>
+          <div class="alert" *ngIf="responseCode!=null">
+            <app-alert [message]="responseMessage" [style]="responseCode">
 
+            </app-alert>
+          </div>
           </mat-card-content>
           <mat-card-actions align="start">
               <div class="btn">
@@ -51,3 +56,21 @@
       </mat-card>
       </form>
     </div>
+  <div class="list" *ngIf="listeProducts.length>0">
+    <div class="header">
+      <h2>
+        Liste des Garanties disponibles
+      </h2>
+      <div class="body">
+        <div class="item" *ngFor="let item of listeProducts">
+          <span>
+            {{item.nom}}
+          </span>
+          <span style="position: relative;right: 0px;">
+            <i class="ri-close-large-line" (click)="suppressionProduit(item.id)" ></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
