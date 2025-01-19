@@ -1,12 +1,10 @@
 <div class="container">
 
   <div class="header">
-    <h1>Votre Liste de subscription</h1>
+    <h1>Liste des subscriptions</h1>
   </div>
 
-  <app-vide *ngIf="data.length==0&&isLoad==false">
 
-  </app-vide>
 
   <div class="spinner">
     <app-spinner label="Chargement des souscriptions" [diameter]=100 *ngIf="isLoad">
@@ -14,7 +12,10 @@
     </app-spinner>
   </div>
 
-  <div class="list" *ngIf="data">
+  <div class="list" >
+    <app-vide *ngIf="data.length==0&&isLoad==false">
+
+    </app-vide>
     <div class="item" *ngFor="let item of data">
       <app-item-souscriptions [item]="item">
 

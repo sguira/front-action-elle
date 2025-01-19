@@ -50,6 +50,19 @@ background-color: rgb(35, 140, 164);
 
 }
 
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  // background-color: red;
+
+  h1{
+    // background-color: yellow;
+
+  }
+}
+
 .button{
         padding: 8px;
         margin: auto 8px;

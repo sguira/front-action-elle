@@ -1,6 +1,6 @@
 
 <div class="spinner">
-  <app-spinner label="Chargement des details" [diameter]=86>
+  <app-spinner label="Chargement des details" [diameter]=86 *ngIf="isLoad">
 
   </app-spinner>
 </div>
@@ -36,7 +36,11 @@
       </div>
     </div>
   </div>
+   <app-vide *ngIf="data.length==0">
+
+    </app-vide>
   <div class="liste" *ngIf="data!=null">
+
     <div class="item" *ngFor="let item of data['souscriptions']">
       <app-item-souscriptions [item]="item">
 

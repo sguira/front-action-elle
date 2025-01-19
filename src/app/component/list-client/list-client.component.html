@@ -12,6 +12,10 @@
     </div>
   </div>
 
+  <app-vide *ngIf="isLoad==false && dataLength==0" >
+
+  </app-vide>
+
   <div class="body" *ngIf="clients.length>0">
     <div class="list">
       <div class="item" *ngFor="let item of clients">

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { SimulationService } from 'src/app/service/simulation.service';
 import { PdfComponent } from '../pdf/pdf/pdf.component';
+import { LoadingService } from 'src/app/service/loading.service';
 
 @Component({
   selector: 'app-details-devis',
@@ -15,7 +16,9 @@ export class DetailsDevisComponent {
 
   data:any=null;
   id:string=""
-  constructor(public activatedRoute:ActivatedRoute,public serviceSimulation:SimulationService,public pdf:PdfComponent ){
+  dataLength:number|null=null
+  isLoad=false;
+  constructor(public activatedRoute:ActivatedRoute,public serviceSimulation:SimulationService,public loading:LoadingService){
 
   }
   ngOnInit(): void {
@@ -24,7 +27,9 @@ export class DetailsDevisComponent {
 
     // this.data=history.state.data
     // console.log("données details"+this.data)
-
+    this.loading.$progress.subscribe(e=>{
+      this.isLoad=e;
+    })
     this.activatedRoute.params.subscribe(value=>{
       console.log("Identifiant:"+value['id'])
       this.id=value['id']
@@ -32,13 +37,11 @@ export class DetailsDevisComponent {
         this.serviceSimulation.getDevis("/"+this.id).subscribe((value)=>{
           this.data=value;
           console.log(this.data)
+          this.dataLength=this.data.length
         })
       }
     })
   }
 
-  generate(){
-    this.pdf.generatePdf()
-  }
 
 }

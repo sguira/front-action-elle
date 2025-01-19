@@ -25,10 +25,11 @@
           </div>
           <div class="list" *ngIf="showMenu">
             <div class="items">
-            <a routerLink="subscription" (click)="viewMobileMenu()">Souscription</a>
-            <a routerLink="simulation" (click)="viewMobileMenu()">Simulation</a>
-            <a routerLink="list-souscriptions" (click)="viewMobileMenu()">Mes Souscription</a>
-            <a routerLink="list-devis" (click)="viewMobileMenu()">Mes Dévis</a>
+            <a routerLink="subscription" (click)="viewMobileMenu()" routerLinkActive="active">Souscription</a>
+            <a routerLink="simulation" (click)="viewMobileMenu()" routerLinkActive="active">Simulation</a>
+            <a routerLink="list-souscriptions" (click)="viewMobileMenu()" routerLinkActive="active" >Mes Souscription</a>
+            <a routerLink="list-devis" (click)="viewMobileMenu()"routerLinkActive="active">Mes Dévis</a>
+            <a routerLink="list-clients" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" (change)="viewMobileMenu()">Mes Clients</a>
             <a (click)="logout()"><i class="ri-logout-box-line"></i></a>
           </div>
           </div>

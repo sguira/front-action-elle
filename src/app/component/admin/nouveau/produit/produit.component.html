@@ -58,8 +58,8 @@
     </div>
   <div class="list" *ngIf="listeProducts.length>0">
     <div class="header">
-      <h2>
-        Liste des Garanties disponibles
+      <h2 style="color: white;">
+        Liste des produits disponibles
       </h2>
       <div class="body">
         <div class="item" *ngFor="let item of listeProducts">
@@ -67,7 +67,7 @@
             {{item.nom}}
           </span>
           <span style="position: relative;right: 0px;">
-            <i class="ri-close-large-line" (click)="suppressionProduit(item.id)" ></i>
+            <!-- <i class="ri-close-large-line" (click)="suppressionProduit(item.id)" ></i> -->
           </span>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
+import { LoadingService } from 'src/app/service/loading.service';
 
 @Component({
   selector: 'app-detail-amazone',
@@ -11,8 +12,11 @@ export class DetailAmazoneComponent {
 
   id:string="";
   data:any=null
-  constructor(public router:ActivatedRoute,public admin:AdminService){
-
+  isLoad=false;
+  constructor(public router:ActivatedRoute,public admin:AdminService,public loading:LoadingService){
+    this.loading.$progress.subscribe(e=>{
+      this.isLoad=e;
+    })
   }
 
   ngOnInit(): void {

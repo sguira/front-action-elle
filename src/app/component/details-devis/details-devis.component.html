@@ -2,7 +2,9 @@
 
 
   <div class="spinner">
-    <app-spinner></app-spinner>
+    <app-spinner label="chargement dévi" [diameter]=68 *ngIf="isLoad">
+
+    </app-spinner>
   </div>
 
 
@@ -74,9 +76,9 @@
             </div>
         </mat-card-content>
 
-      <mat-card-actions>
+      <!-- <mat-card-actions>
         <button mat-raised-button class="button" (click)="generate()">Faire Une Souscription</button>
-      </mat-card-actions>
+      </mat-card-actions> -->
     </mat-card>
   </div>
   <!-- <div class="item" *ngIf="data!=null">

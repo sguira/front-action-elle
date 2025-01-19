@@ -16,6 +16,7 @@ export class ListClientComponent {
   isLoad=false;
   btnListen=false;
   clientClientId=""
+  dataLength:number|null=null
   constructor(public userService:UtilisateurService,public router:Router,public loading:LoadingService,public subscription:SouscriptionService) { }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class ListClientComponent {
     this.userService.getClient().subscribe(value=>{
 
       this.clients=value.map((e:any)=>new Assuree(e['id'],e['nom'],e['telephone'],e['adresse'],e['ville'],e['cin'],e['type']))
+      this.dataLength=this.clients.length;
     })
   }
 

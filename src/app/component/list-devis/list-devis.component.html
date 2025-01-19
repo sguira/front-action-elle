@@ -7,7 +7,7 @@
 
     </app-spinner>
   </div>
-  <app-vide *ngIf="data.length==0&&isLoad==false">
+  <app-vide *ngIf="dataLength==0&&isLoad==false">
 
   </app-vide>
   <div class="body">
@@ -38,7 +38,7 @@
               <div class="content">
                 <div class="info" style="margin: 18px auto;border: 1px solid transparent; padding: 8px;justify-content: center;display: flex;border-radius: 4px;background-color: rgba(235, 125, 125, 0.486);color: black;">
                   <span>
-                    Produit Assurance
+                    Produit Assurance:
                   </span>
                   <span>
                     {{item['produitAssure']["nomProduit"]}}
@@ -60,10 +60,10 @@
               <button class="button" (click)="goToDetails(item)">
                 Voir details <i class="ri-arrow-right-line"></i>
               </button>
-              <button class="button" (click)="goToDetails(item)">
+              <!-- <button class="button" (click)="goToDetails(item)">
                 <i class="ri-bookmark-3-line"></i>
                 Souscrire
-              </button>
+              </button> -->
             </mat-card-actions>
 
         </mat-card>

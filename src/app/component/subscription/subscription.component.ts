@@ -116,7 +116,12 @@ export class SubscriptionComponent {
   }
 
   getCodeById(){
-    this.labelCategorie=this.user.getCategorieByIds([this.formVehicule?.value['categorie']])[0].code.toString();
+    for(let cat of this.user.categorieVoitures){
+      if(this.formVehicule!.value['categorie']==cat.id){
+        this.labelCategorie=cat.code.toString()
+        break;
+      }
+    }
   }
 
 
@@ -152,13 +157,16 @@ export class SubscriptionComponent {
       console.log(data)
       this.resultCode=1;
       this.resultMessage="Souscription effectuée avec succès"
-      this.formPersonne?.reset()
-      this.formVehicule?.reset()
-      this.formProduct?.reset()
+      this.currentForm==1;
       setTimeout(() => {
         this.resultCode=null;
         this.resultMessage="";
-      }, 4000);
+        this.formPersonne?.reset()
+        this.formVehicule?.reset()
+        this.formProduct?.reset()
+
+      }, 3000);
+
     },(e)=>{
       this.resultCode=0;
       this.resultMessage="Erreur lors de la souscription"

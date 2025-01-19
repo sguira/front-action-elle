@@ -15,7 +15,7 @@
   <mat-card *ngIf="currentForm==1">
       <mat-card-header>
           <mat-card-title>Information Du Véhicule</mat-card-title>
-          <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+
       </mat-card-header>
 
       <mat-card-content>
@@ -73,6 +73,7 @@
             </div>
           </form>
          </div>
+         <app-alert *ngIf="resultCode!=null" [style]="resultCode" [message]="resultMessage"></app-alert>
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
           <button (click)="backForm()"  class="button" [disabled]="currentForm==1" >Precedent</button>
@@ -164,7 +165,7 @@
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
           <button mat-button (click)="backForm()" class="button" >Precedent</button>
-          <button type="submit" (click)="nextForm()" class="button" [disabled]="(formPersonne!.valid==false&&currentClient==null) || selectClient==false">Suivant</button>
+          <button type="submit" (click)="nextForm()" class="button" [disabled]="(formPersonne!.valid==false&&currentClient==null) || (selectClient==false&&formPersonne!.valid==false)">Suivant</button>
       </mat-card-actions>
     </form>
   </mat-card>
@@ -258,13 +259,12 @@
           <label for="" *ngIf="selectProductByCode(formVehicule!.value['categorie']).length==0" style="color: red;">Aucun produit disponible pour la catégorie selectionné</label>
           </div>
 
-        <app-alert *ngIf="resultCode!=null" [style]="resultCode" [message]="resultMessage"></app-alert>
+
       </mat-card-content>
       <mat-card-actions style="justify-content: center;">
           <button mat-button (click)="backForm()" class="button">Precedent</button>
           <button mat-button (click)="souscription()" class="button"  [disabled]="formProduct.valid==false">
-            <mat-progress-spinner mode="indeterminate" color="warn" diameter="15" *ngIf="isLoad"></mat-progress-spinner>
-            {{isLoad==false? 'Faire la suscription':''}}
+            <app-btn-loader *ngIf="isLoad" ></app-btn-loader>{{isLoad?'':'Souscrire'}}
           </button>
       </mat-card-actions>
     </form>

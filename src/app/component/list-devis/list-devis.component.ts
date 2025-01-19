@@ -13,6 +13,7 @@ export class ListDevisComponent {
 
   data:any[]=[];
   isLoad:boolean=false;
+  dataLength:number|null=null;
   constructor(public simulationService: SimulationService,public router:Router,public loading:LoadingService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class ListDevisComponent {
     this.simulationService.getDevis(null).subscribe(value => {
       this.data = value;
       console.log(value)
+      this.dataLength=this.data.length
     });
   }
 

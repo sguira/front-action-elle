@@ -37,7 +37,7 @@
 }
 .list{
   margin: 4px 22px;
-  border: 1px solid silver;
+  border: 1px solid rgba(192, 192, 192, 0.404);
   padding: 12px;
   border-radius: 6px;
   header{
@@ -45,11 +45,11 @@
   }
   .body{
     .item{
-      padding: 8px;
+      padding: 12px;
       margin: 6px;
       size: 12px;
-      background-color: rgb(18, 109, 189);
-      border-radius: 8px;
+      background-color: rgba(186, 195, 203, 0.384);
+      border-radius: 4px;
       display: flex;
       justify-content: space-between;
       color: white;

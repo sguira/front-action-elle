@@ -12,7 +12,10 @@ export class ListSuscriptionComponent {
 
   isLoad=false;
   data:any[]=[]
-  constructor(public suscriptionService:SouscriptionService,public loading:LoadingService,public router:Router,public activated:ActivatedRoute){}
+  datalength=null
+  constructor(public suscriptionService:SouscriptionService,public loading:LoadingService,public router:Router,public activated:ActivatedRoute){
+    // this.ngOnInit()
+  }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -33,6 +36,7 @@ export class ListSuscriptionComponent {
           this.data=element
         })
       }
+      // this.datalength=this.data.length;
     })
   }
 

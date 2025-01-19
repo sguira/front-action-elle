@@ -61,7 +61,10 @@ Installer node js dépuis votre navigateur puis utiliser le gestionnaire de pack
 - `app/service` Contient les service http, ce module contient les élements nécessaires pour envoyer des réquêtes vers l'application back-end disponible dans le répo <a href="https://github.com/sguira/Backend-ActionElle.git" >Application Backend</a>
 - `app/interface` Contient les modèles de données utilisés par l'application
 - `app/component` Contient les interfaces graphiques de l'application 
-- `assets` Contient les médias statiques comme Image utilisé dans le projet
+- `assets` Contient les médias statiques comme Image utilisé dans le projet <br>
+
+Cette application est composée de deux partie pour partie pour l'administrateur et une autre partie pour les amazones
+Lors de la connexion vous êtes rédiriger vers l'application selon votre rôle.
 
 
 ## REMARQUE
@@ -74,5 +77,7 @@ Pour executer l'application il faut au préalable lancer le server rest
 - Veuillez clôner cette application et le backend dans un répertoire parent commun 
 - Copier le télécharger le fichier docker-compose dans la racine des deux répertoire 
 - RUN `docker-compose up --build` Pour lancer les deux application
+
+- Accéder à l'application en `localhost:4200`
 
 
